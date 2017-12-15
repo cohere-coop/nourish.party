@@ -17,7 +17,6 @@ Cohere (wecohere.com) is Betsy, Zee, and Jennifer.  They have an annual end-of-y
 * Dash for making it possible to offer subscription-based digital access
 
 ## Can I help?
-Aww, thanks so much!  We're glad you've been enjoying the party and want to add even more to it.
-(open source project, how to contribute)
+Aww, thanks so much!  We're glad you've been enjoying the party and want to add even more to it. Please read our [contributing guidelines](./CONTRIBUTING.md) for guidance on how you can best contribute.
 
 (We have a Nourish for Nourish, here's how to chip in)

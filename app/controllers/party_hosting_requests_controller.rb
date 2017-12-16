@@ -1,6 +1,6 @@
 # Exposes CRUD actions for party hosting requests
 class PartyHostingRequestsController < ApplicationController
-  expose :party_hosting_request
+  expose :party_hosting_request, scope: -> { current_user.party_hosting_requests }
   def new; end
 
   def create

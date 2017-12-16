@@ -27,9 +27,9 @@ class App
     @new_party_hosting_request_page ||= NewPartyHostingRequestPage.new
   end
 
-  def submit_party_hosting_request(title:, activity:)
+  def submit_party_hosting_request(title:, summary:)
     new_party_hosting_request_page.load
-    new_party_hosting_request_page.submit(title: title, activity: activity)
+    new_party_hosting_request_page.submit(title: title, summary: summary)
   end
 
   def registration_page

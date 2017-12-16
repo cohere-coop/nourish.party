@@ -15,6 +15,6 @@ class PartyHostingRequestsController < ApplicationController
   private
 
   def party_hosting_request_params
-    params.require(:party_hosting_request).permit(:title, :activity)
+    params.require(:party_hosting_request).permit(:title, :summary)
   end
 end

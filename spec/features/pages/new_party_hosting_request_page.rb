@@ -2,12 +2,12 @@
 class NewPartyHostingRequestPage < SitePrism::Page
   set_url "/party_hosting_requests/new"
   element :title_field, "input[name='party_hosting_request[title]']"
-  element :activity_field, "input[name='party_hosting_request[activity]']"
+  element :summary_field, "input[name='party_hosting_request[summary]']"
   element :submit_button, "input[name='commit']"
 
-  def submit(title:, activity:)
+  def submit(title:, summary:)
     title_field.set(title)
-    activity_field.set(activity)
+    summary_field.set(summary)
     submit_button.click
   end
 end

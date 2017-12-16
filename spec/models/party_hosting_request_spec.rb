@@ -3,12 +3,12 @@ require "rails_helper"
 RSpec.describe PartyHostingRequest, type: :model do
   subject(:party_hosting_request) { create(:party_hosting_request, :with_hosts) }
   describe "#approve" do
-    it "creates a party with the same title, activity and hostsfrom the party hosting request" do
+    it "creates a party with the same title, summary and hosts from the party hosting request" do
       party_hosting_request.approve
       resulting_party = party_hosting_request.resulting_party
       expect(resulting_party).to be_persisted
       expect(resulting_party.title).to eq party_hosting_request.title
-      expect(resulting_party.activity).to eq party_hosting_request.activity
+      expect(resulting_party.summary).to eq party_hosting_request.summary
       expect(resulting_party.hosts).to eq party_hosting_request.hosts
     end
 

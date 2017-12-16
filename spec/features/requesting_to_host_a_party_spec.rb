@@ -4,7 +4,7 @@ xdescribe "Requesting to host a party spec" do
     user = create(:user)
     app.login_as(user: user)
     app.submit_party_hosting_request(title: "Robotic Pidgeons",
-                                     activity: "We're designing robotic pigeons and letting them loose")
+                                     summary: "We're designing robotic pigeons and letting them loose")
 
     expect(app).not_to have_public_party(title: "Robotic Pidgeons")
 

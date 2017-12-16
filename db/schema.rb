@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20_171_216_031_536) do
 
   create_table "parties", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
-    t.string "activity"
+    t.string "summary"
     t.uuid "from_party_hosting_request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20_171_216_031_536) do
 
   create_table "party_hosting_requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
-    t.string "activity"
+    t.string "summary"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

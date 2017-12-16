@@ -2,7 +2,7 @@ class CreateParties < ActiveRecord::Migration[5.1]
   def change
     create_table :parties, id: :uuid do |t|
       t.string :title
-      t.string :activity
+      t.string :summary
       t.uuid :from_party_hosting_request_id
 
       t.timestamps
@@ -17,7 +17,7 @@ class CreateParties < ActiveRecord::Migration[5.1]
 
     create_table :party_hosting_requests, id: :uuid do |t|
       t.string :title
-      t.string :activity
+      t.string :summary
       t.string :status
 
       t.timestamps

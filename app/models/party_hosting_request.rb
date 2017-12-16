@@ -7,7 +7,7 @@ class PartyHostingRequest < ApplicationRecord
 
   def approve
     return false if resulting_party.present?
-    create_resulting_party(title: title, activity: activity)
+    create_resulting_party(title: title, summary: summary)
     hosts.each do |host|
       resulting_party.hosts << host
     end

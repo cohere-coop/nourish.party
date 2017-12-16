@@ -4,4 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :party_hosting_request_hosts, foreign_key: :host_id
+  has_many :party_hosting_requests, through: :party_hosting_request_hosts
 end

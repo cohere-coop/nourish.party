@@ -7,11 +7,11 @@ Given("there is already a user with the email {string} and the password {string}
 end
 
 When("I register with the email {string} and the password {string}") do |email, password|
-  app.register_with(email: email, password: password)
+  app.register_as(email: email, password: password)
 end
 
 When("I log in as {string} using the password {string}") do |email, password|
-  app.login_with(email: email, password: password)
+  app.login_as(email: email, password: password)
 end
 
 Then("I should not see any errors") do

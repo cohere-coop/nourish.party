@@ -1,1 +1,11 @@
 <%= current_user.email %>
+
+<%- parties.each do |party| %>
+  <div class="party">
+    <h2 class="title"><%= party.title %></h2>
+    <p class="activity"><%= party.activity %></p>
+  </div>
+<%- end %>
+
+<%= link_to t('cta.request_to_host_party'), new_party_hosting_request_path %>
+

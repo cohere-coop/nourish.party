@@ -1,3 +1,4 @@
+# Exposes CRUD actions for party hosting requests
 class PartyHostingRequestsController < ApplicationController
   expose :party_hosting_request
   def new; end

@@ -45,9 +45,9 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "pry"
 
-  # Test runner
-  gem "rspec-rails", "~> 3.6"
+  # Test runners and supporting utilities
   gem "factory_bot_rails", "~> 4.8"
+  gem "rspec-rails", "~> 3.6"
 
   # Feature testing
   gem "capybara", "~> 2.16"

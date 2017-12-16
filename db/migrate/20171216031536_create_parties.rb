@@ -8,7 +8,7 @@ class CreateParties < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    create_table :party_hosts, id: :uuid do |t|
+    create_table :parties_hosts, id: :uuid do |t|
       t.uuid :host_id
       t.uuid :party_id
 
@@ -23,7 +23,7 @@ class CreateParties < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    create_table :party_hosting_request_hosts, id: :uuid do |t|
+    create_table :party_hosting_requests_hosts, id: :uuid do |t|
       t.uuid :host_id
       t.uuid :party_hosting_request_id
 

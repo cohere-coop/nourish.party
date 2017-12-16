@@ -13,12 +13,26 @@ AllCops:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+Metrics/AbcSize:
+  Exclude:
+    - db/schema.rb
+    - db/migrate/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - "*.gemspec"
+    - "spec/**/*_spec.rb"
+    - db/schema.rb
+
+
 Metrics/MethodLength:
   Exclude:
     - db/migrate/**/*
 
 Metrics/LineLength:
   Max: 110
+  Exclude:
+    - db/schema.rb
 
 Style/Documentation:
   Exclude:
@@ -26,11 +40,6 @@ Style/Documentation:
 Style/FileName:
   Exclude:
     - "lib/nylas-streaming.rb"
-
-Metrics/BlockLength:
-  Exclude:
-    - "*.gemspec"
-    - "spec/**/*_spec.rb"
 
 
 RSpec/DescribeClass:

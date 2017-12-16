@@ -5,6 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :party_hosting_request_hosts, foreign_key: :host_id
-  has_many :party_hosting_requests, through: :party_hosting_request_hosts
+  has_many :party_hosting_requests_hosts, foreign_key: :host_id
+  has_many :party_hosting_requests, through: :party_hosting_requests_hosts
 end

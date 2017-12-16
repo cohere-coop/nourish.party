@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20_171_216_031_536) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "party_hosting_request_hosts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "parties_hosts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "host_id"
-    t.uuid "party_hosting_request_id"
+    t.uuid "party_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20_171_216_031_536) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "party_hosts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "party_hosting_requests_hosts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "host_id"
-    t.uuid "party_id"
+    t.uuid "party_hosting_request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

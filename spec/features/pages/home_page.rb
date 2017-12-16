@@ -1,3 +1,4 @@
+# Encapsulates user interactions with home page
 class HomePage < SitePrism::Page
   set_url "/"
 

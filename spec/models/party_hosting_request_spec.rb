@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe PartyHostingRequest, type: :model do
-  subject(:party_hosting_request) { create(:party_hosting_request, :with_hosts) }
+  subject(:party_hosting_request) { create(:party_hosting_request, hosts: [create(:user)]) }
   describe "#approve" do
     it "creates a party with the same title, summary and hosts from the party hosting request" do
       party_hosting_request.approve

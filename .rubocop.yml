@@ -1,0 +1,42 @@
+require:
+  - rubocop-rspec
+  - rubocop/migrations
+AllCops:
+  TargetRubyVersion: 2.2
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - db/seeds.rb
+
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**/*
+
+Metrics/LineLength:
+  Max: 110
+
+Style/Documentation:
+  Exclude:
+    - "db/migrate/**/*"
+Style/FileName:
+  Exclude:
+    - "lib/nylas-streaming.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "*.gemspec"
+    - "spec/**/*_spec.rb"
+
+
+RSpec/DescribeClass:
+  Exclude:
+    - "spec/features/**/*"
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false

@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -17,6 +17,7 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 module NourishParty
+  # Actual Rack application mounted by Rack
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1

@@ -1,3 +1,5 @@
+# Represents the page used to log in to the application
+# Encapsulates all login related functionality for feature tests
 class LoginPage < SitePrism::Page
   set_url "/users/sign_in/"
 

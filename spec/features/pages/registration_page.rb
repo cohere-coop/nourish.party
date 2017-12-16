@@ -1,3 +1,5 @@
+# Represents the page used to register for the application. Encapsulates all registration functionality for
+# feature tests.
 class RegistrationPage < SitePrism::Page
   set_url "/users/sign_up/"
 

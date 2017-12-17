@@ -7,7 +7,6 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   Exclude:
-    - db/seeds.rb
     - bin/bundle
     - lib/tasks/cucumber.rake
 

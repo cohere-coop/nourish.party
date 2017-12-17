@@ -1,5 +1,5 @@
 require "features/pages/home_page"
-require "features/pages/new_party_hosting_request_page"
+require "features/pages/new_project_request_page"
 require "features/pages/registration_page"
 require "features/pages/login_page"
 
@@ -23,13 +23,13 @@ class App
     end
   end
 
-  def new_party_hosting_request_page
-    @new_party_hosting_request_page ||= NewPartyHostingRequestPage.new
+  def new_project_request_page
+    @new_project_request_page ||= NewProjectRequestPage.new
   end
 
-  def submit_party_hosting_request(title:, summary:)
-    new_party_hosting_request_page.load
-    new_party_hosting_request_page.submit(title: title, summary: summary)
+  def submit_project_request(title:, summary:)
+    new_project_request_page.load
+    new_project_request_page.submit(title: title, summary: summary)
   end
 
   def registration_page
@@ -73,8 +73,8 @@ class App
     @home_page ||= HomePage.new
   end
 
-  def has_public_party?(title:)
+  def has_public_project?(title:)
     home_page.load
-    home_page.has_party?(title: title)
+    home_page.has_project?(title: title)
   end
 end

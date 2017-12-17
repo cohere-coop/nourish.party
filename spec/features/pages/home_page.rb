@@ -2,11 +2,11 @@
 class HomePage < SitePrism::Page
   set_url "/"
 
-  elements :parties, ".party"
+  elements :projects, ".project"
 
-  def has_party?(title:)
-    parties.any? do |party|
-      party.find(".title").text == title
+  def has_project?(title:)
+    projects.any? do |project|
+      project.find(".title").text == title
     end
   end
 end

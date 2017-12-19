@@ -5,6 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :project_requests_users
-  has_many :project_requests, through: :project_requests_users
+  has_many :project_memberships, foreign_key: :member_id
+  has_many :projects, through: :project_memberships
 end

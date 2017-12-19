@@ -1,5 +1,5 @@
 require "features/pages/home_page"
-require "features/pages/new_project_request_page"
+require "features/pages/new_project_page"
 require "features/pages/registration_page"
 require "features/pages/login_page"
 
@@ -23,13 +23,13 @@ class App
     end
   end
 
-  def new_project_request_page
-    @new_project_request_page ||= NewProjectRequestPage.new
+  def new_project_page
+    @new_project_page ||= NewProjectPage.new
   end
 
-  def submit_project_request(title:, summary:)
-    new_project_request_page.load
-    new_project_request_page.submit(title: title, summary: summary)
+  def submit_project(title:, summary:)
+    new_project_page.load
+    new_project_page.submit(title: title, summary: summary)
   end
 
   def registration_page

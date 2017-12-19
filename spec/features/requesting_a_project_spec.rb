@@ -1,6 +1,6 @@
 require "features/helper"
 
-describe "ing a project" do
+describe "requesting a project" do
   include FeatureTestHelpers
   it "requires the project to be approved before it becomes visible" do
     user = create(:user)

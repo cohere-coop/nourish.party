@@ -47,6 +47,7 @@ group :development, :test do
 
   # Feature testing
   gem "capybara", "~> 2.16"
+  gem "capybara-screenshot"
   gem "cucumber-rails", "~> 1.5", require: false
   gem "database_cleaner"
   gem "selenium-webdriver", "~> 3.8"

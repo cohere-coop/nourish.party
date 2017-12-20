@@ -8,6 +8,7 @@ AllCops:
   Exclude:
     - db/seeds.rb
     - bin/bundle
+    - lib/tasks/cucumber.rake
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

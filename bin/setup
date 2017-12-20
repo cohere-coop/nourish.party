@@ -33,7 +33,7 @@ chdir APP_ROOT do
   system! "bin/rails log:clear tmp:clear"
 
   puts "\n== Installing git hooks =="
-  system! "overcommit --install"
+  system! "bin/overcommit --install"
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"

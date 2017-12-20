@@ -1,6 +1,6 @@
 language: ruby
 rvm: 2.4.2
-before_script:
+before_install:
   - psql -c 'create database nourish_party_test;' -U postgres
 services:
   - postgresql

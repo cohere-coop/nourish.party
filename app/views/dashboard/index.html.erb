@@ -1,1 +1,11 @@
 <%= current_user.email %>
+
+<%- projects.each do |project| %>
+  <div class="project">
+    <h2 class="title"><%= project.title %></h2>
+    <p class="summary"><%= project.summary %></p>
+  </div>
+<%- end %>
+
+<%= link_to t('cta.submit_your_project_for_approval'), new_project_path %>
+

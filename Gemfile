@@ -36,13 +36,17 @@ gem "jbuilder", "~> 2.5"
 gem "devise", "~> 4.3"
 gem "devise-i18n", "~> 1.5"
 
+# Route/Controller/View DRYers
+gem "decent_exposure", "~> 3.0"
+
 group :development, :test do
   # Debugging
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "pry"
 
-  # Test runner
+  # Test runners and supporting utilities
+  gem "factory_bot_rails", "~> 4.8"
   gem "rspec-rails", "~> 3.6"
 
   # Feature testing

@@ -1,12 +1,10 @@
-# require "rails_helper"
-
 require "capybara/rails"
 require "capybara/rspec"
 require "selenium-webdriver"
 require "site_prism"
 
-require "pages/registration_page"
-require "pages/login_page"
+require "pages/app"
+
 Capybara.server = :puma
 
 # Mixin for feature tests so they can interact with the application instead of using capybara
@@ -16,54 +14,5 @@ module FeatureTestHelpers
   end
 end
 
-# Adapter to aggregate the pages of the application to make feature testing easier
-class App
-  include Capybara::DSL
-
-  def logged_in?
-    within("header") do
-      !page.has_content?(I18n.t("devise.shared.links.sign_in"))
-    end
-  end
-
-  def logged_in_as?(email)
-    within("header") do
-      page.has_content?(email)
-    end
-  end
-
-  def register_with(email:, password:)
-    registration_page.load
-    registration_page.submit(email: email, password: password)
-  end
-
-  def login_with(email:, password:)
-    login_page.load
-    login_page.submit(email: email, password: password)
-  end
-
-  def registration_page
-    @registration_page ||= RegistrationPage.new
-  end
-
-  def login_page
-    @login_page ||= LoginPage.new
-  end
-
-  def showing_errors?
-    page.has_css?(".error") || page.has_css?("#error_explanation")
-  end
-
-  def showing_error?(*translations)
-    error = translations.map(&I18n.method(:t)).join(" ")
-    error_text.any? { |_particular_error| error.include?(error) }
-  end
-
-  def errors
-    page.find_all(".error")
-  end
-
-  def error_text
-    page.find_all(".error").map(&:text) + [page.find("#error_explanation").text]
-  end
-end
+World(FeatureTestHelpers)
+World(FactoryBot::Syntax::Methods)

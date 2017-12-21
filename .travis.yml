@@ -1,6 +1,7 @@
 language: ruby
 rvm: 2.4.2
 before_script:
+  - psql --version
   - psql -c 'create database nourish_party_test' -U postgres
   - psql -c 'create extension if not exists pgcrypto;' -U postgres
   - bin/rails db:setup

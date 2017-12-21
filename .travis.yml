@@ -1,16 +1,6 @@
-sudo: required
-dist: trusty
-group: deprecated-2017Q4
 language: ruby
 rvm: 2.4.2
-cache:
-  bundler: true
-  directories:
-    - /home/travis/.rvm
-before_script:
-  - psql --version
-  - psql -c 'create database nourish_party_test' -U postgres
-  - psql -c 'create extension if not exists pgcrypto;' -U postgres
-  - bin/rails db:setup
 services:
   - postgresql
+before_script:
+  - bin/rails db:setup

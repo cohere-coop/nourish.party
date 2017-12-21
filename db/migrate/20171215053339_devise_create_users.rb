@@ -1,6 +1,9 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
+  # rubocop:disable Metrics/AbcSize
   def change
+    enable_extension "uuid-ossp"
     enable_extension "pgcrypto"
+
     create_table :users, id: :uuid do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -39,4 +42,5 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
+  # rubocop:enable Metrics/AbcSize
 end

@@ -9,8 +9,19 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <% if current_user %>
+        Hi, <%= current_user.email %>
+      <% else %>
+        <%= link_to t('devise.shared.links.sign_in'),new_user_session_path %>
+        <%= link_to t('devise.shared.links.sign_up'),new_user_registration_path %>
+      <% end %>
+    </header>
+
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
   </body>
 </html>

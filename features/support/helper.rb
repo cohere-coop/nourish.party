@@ -1,12 +1,12 @@
-require "rails_helper"
+# require "rails_helper"
 
 require "capybara/rails"
 require "capybara/rspec"
 require "selenium-webdriver"
 require "site_prism"
 
-require "features/pages/registration_page"
-require "features/pages/login_page"
+require "pages/registration_page"
+require "pages/login_page"
 Capybara.server = :puma
 
 # Mixin for feature tests so they can interact with the application instead of using capybara
@@ -20,8 +20,16 @@ end
 class App
   include Capybara::DSL
 
+  def logged_in?
+    within("header") do
+      !page.has_content?(I18n.t("devise.shared.links.sign_in"))
+    end
+  end
+
   def logged_in_as?(email)
-    page.has_content?(email)
+    within("header") do
+      page.has_content?(email)
+    end
   end
 
   def register_with(email:, password:)

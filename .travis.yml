@@ -2,10 +2,11 @@ language: ruby
 rvm: 2.4.2
 before_install:
   - psql -c 'create database nourish_party_test;' -U postgres
-  - psql nourish_party_test -c 'SELECT * FROM pg_available_extensions;' -U postgres
-  - psql nourish_party_test -c 'CREATE EXTENSION "uuid-ossp";' -U postgres
-  - psql nourish_party_test -c 'CREATE EXTENSION "pgcrypto";' -U postgres
-  - psql nourish_party_test -c 'SELECT * FROM pg_extension;' -U postgres
+  - psql nourish_party_test -c 'SELECT * FROM pg_available_extensions;'
+  - psql nourish_party_test -c 'CREATE EXTENSION "uuid-ossp";'
+  - psql nourish_party_test -c 'CREATE EXTENSION "pgcrypto";'
+  - psql nourish_party_test -c 'SELECT * FROM pg_extension;'
+  - psql nourish_party_test -c 'SELECT gen_random_uuid();'
 services:
   - postgresql
 before_script:

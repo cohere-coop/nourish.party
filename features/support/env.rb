@@ -60,4 +60,3 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 
 $LOAD_PATH.unshift File.dirname(__FILE__)
 require "helper"
-World(FeatureTestHelpers)

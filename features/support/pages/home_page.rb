@@ -4,9 +4,11 @@ class HomePage < SitePrism::Page
 
   elements :projects, ".project"
 
-  def has_project?(title:)
+  def project?(title:)
     projects.any? do |project|
       project.find(".title").text == title
     end
   end
+
+  alias has_project? project?
 end

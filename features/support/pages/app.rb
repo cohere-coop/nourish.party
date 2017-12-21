@@ -1,12 +1,13 @@
-require "features/pages/home_page"
-require "features/pages/new_project_page"
-require "features/pages/registration_page"
-require "features/pages/login_page"
+require "pages/home_page"
+require "pages/new_project_page"
+require "pages/registration_page"
+require "pages/login_page"
 
 # Encapsulates interactions with the application for feature testing purposes. At some point this should be an
 # adapter that delegates most of it's behavior to the appropriate pages, instead of manually wrapping it as it
 # does now.
 class App
+  attr_accessor :logged_in_user
   include Capybara::DSL
 
   def logged_in?
@@ -48,6 +49,7 @@ class App
   def login_as(user: nil, email: nil, password: nil)
     email ||= user.email
     password ||= user.password
+    self.logged_in_user = user || User.find_by(email: email)
     login_page.load
     login_page.submit(email: email, password: password)
   end
@@ -73,8 +75,9 @@ class App
     @home_page ||= HomePage.new
   end
 
-  def has_public_project?(title:)
+  def public_project?(title:)
     home_page.load
-    home_page.has_project?(title: title)
+    home_page.project?(title: title)
   end
+  alias has_public_project? public_project?
 end

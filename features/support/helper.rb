@@ -1,12 +1,8 @@
-# require "rails_helper"
-
 require "capybara/rails"
 require "capybara/rspec"
 require "selenium-webdriver"
 require "site_prism"
 
-require "pages/registration_page"
-require "pages/login_page"
 require "pages/app"
 
 Capybara.server = :puma
@@ -17,3 +13,6 @@ module FeatureTestHelpers
     @app ||= App.new
   end
 end
+
+World(FeatureTestHelpers)
+World(FactoryBot::Syntax::Methods)

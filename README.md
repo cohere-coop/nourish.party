@@ -1,4 +1,5 @@
 # nourish.party
+![build status](https://travis-ci.org/wecohere/nourish.party.svg?branch=primary)
 Hello, and thanks for coming by!  This party is to celebrate and nourish creators and their communities.  Whether you're here to help us get set up, or here to enjoy the festivities, we're glad you're here.
 
 ## What is Nourish?

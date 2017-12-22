@@ -50,6 +50,9 @@ group :development, :test do
   gem "database_cleaner"
   gem "selenium-webdriver", "~> 3.8"
   gem "site_prism", "~> 2.9"
+
+  # Dev tooling niceties
+  gem "coveralls", require: false
 end
 
 group :development do

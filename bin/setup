@@ -18,8 +18,8 @@ chdir APP_ROOT do
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
 
-  Install JavaScript dependencies if using Yarn
-  system('bin/yarn')
+  # Install JavaScript dependencies if using Yarn
+  system("bin/yarn")
 
   # puts "\n== Copying sample files =="
   # unless File.exist?('config/database.yml')
@@ -34,6 +34,9 @@ chdir APP_ROOT do
 
   puts "\n== Installing git hooks =="
   system! "bin/overcommit --install"
+
+  puts "\n== Autocorrecting any incidental code changes with rubocop =="
+  system! "bin/rubocop -a"
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"

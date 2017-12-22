@@ -34,6 +34,7 @@ brew services start postgresql
  Ruby and don't have opinions about version managers yet, we suggest
  [RVM](https://rvm.io) -- it's stable and well-documented.
 
+1. Install Yarn, either via https://yarnpkg.com/en/docs/install or using your package manager of choice. On OS X with Homebrew, use `brew install yarn`
 1. Run the setup script:
 
  ```
@@ -43,4 +44,4 @@ brew services start postgresql
 
  If you get a Ruby version error, try installing the specified version of Ruby
  using your favorite Ruby version manager. For RVM, this will be
- `rvm install 2.4.1`. Then try running `bin/setup` again.
+ `rvm install 2.4.2`. Then try running `bin/setup` again.

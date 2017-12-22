@@ -9,6 +9,7 @@ AllCops:
   Exclude:
     - bin/bundle
     - lib/tasks/cucumber.rake
+    - node_modules/**/*
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

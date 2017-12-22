@@ -8,7 +8,7 @@ services:
   - postgresql
 install:
   - bin/yarn
-  - ls node_modules
+  - bin/bundle
 before_script:
   - bin/rails db:setup
   - bin/webpack

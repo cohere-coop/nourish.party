@@ -8,3 +8,4 @@ services:
   - postgresql
 before_script:
   - bin/rails db:setup
+  - bin/webpack

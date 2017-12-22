@@ -8,6 +8,5 @@
 // layout file, like app/views/layouts/application.html.erb
 
 require('./../src/stylesheets/base.scss')
-require('./../src/stylesheets/grid.scss')
 
 console.log('Hello World from Webpacker')

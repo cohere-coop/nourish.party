@@ -15,7 +15,10 @@ PreCommit:
     command: ['bundle', 'exec', 'rubocop']
   TrailingWhitespace:
     enabled: true
-
+  EsLint:
+    required_executable: 'npm'
+    enabled: true
+    command: ['npm', 'run', 'lint', '--', '-f', 'compact']
 PrePush:
   RSpec:
     enabled: true

@@ -23,3 +23,8 @@ Feature: User login and registration
     Then I should not see any errors
     And I should be logged in as "taken-email@example.com"
 
+  Scenario: User can sign out
+    Given I am signed in
+    When I log out
+    Then I should not be logged in
+

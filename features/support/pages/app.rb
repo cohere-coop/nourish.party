@@ -54,6 +54,10 @@ class App
     login_page.submit(email: email, password: password)
   end
 
+  def logout
+    page.click_on(I18n.t("devise.shared.links.sign_out"))
+  end
+
   def showing_errors?
     page.has_css?(".error") || page.has_css?("#error_explanation")
   end

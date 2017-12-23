@@ -6,5 +6,9 @@ addons:
   postgresql: "9.6"
 services:
   - postgresql
+install:
+  - bin/yarn
+  - bin/bundle
 before_script:
   - bin/rails db:setup
+  - bin/webpack

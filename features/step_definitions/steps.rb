@@ -19,6 +19,10 @@ When("I log in as {string} using the password {string}") do |email, password|
   app.login_as(email: email, password: password)
 end
 
+When("I log out") do
+  app.logout
+end
+
 When("I submit a project titled {string} and summarized as {string}") do |title, summary|
   app.submit_project(title: title, summary: summary)
 end

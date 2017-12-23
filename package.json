@@ -6,10 +6,10 @@
   },
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
-    "bourbon": "^4.3.4",
     "coffeescript": "1.12.7"
   },
   "devDependencies": {
+    "bourbon": "^4.3.4",
     "caniuse-lite": "^1.0.30000784",
     "eslint": "^4.13.1",
     "eslint-config-standard": "^11.0.0-beta.0",

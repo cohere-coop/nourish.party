@@ -14,15 +14,19 @@
         <div class='.whoami'>
           Hi, <%= current_user.email %>
         </div>
-        <nav>
-          <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
-        </nav>
-      <% else %>
-        <nav>
-          <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
-          <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %>
-        </nav>
       <% end %>
+        <nav>
+          <% if current_user && current_user.instance_admin? %>
+            <%= link_to t('admin.shared.links.pending_projects'), admin_pending_projects_path %>
+            <%= link_to t('admin.shared.links.moderator_actions'), admin_moderator_actions_path %>
+          <% end %>
+          <% if current_user %>
+            <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
+            <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %>
+          <% end %>
+        </nav>
     </header>
 
     <main class="<%= yield(:main_class).present? ? yield(:main_class) : '--primary-layout' %>">

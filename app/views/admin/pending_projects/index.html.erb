@@ -1,0 +1,14 @@
+
+<table class="pending-projects">
+<%- pending_projects.each do |pending_project|%>
+  <tr data-type="pending-project" data-id="<%= pending_project.id %>">
+    <td><%=pending_project.title%></td>
+    <td>
+      <%= link_to(t('admin.approving_project.begin'),
+                  new_admin_pending_project_project_approval_path(pending_project),
+                  { data: { action: "begin-approval" } }) %>
+    </td>
+  </tr>
+<% end %>
+</table>
+

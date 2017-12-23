@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_171_217_191_956) do
+ActiveRecord::Schema.define(version: 20_171_227_194_024) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pgcrypto"
+
+  create_table "moderator_actions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "action"
+    t.string "reason"
+    t.uuid "moderator_id"
+    t.uuid "object_id"
+    t.string "object_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["moderator_id"], name: "index_moderator_actions_on_moderator_id"
+    t.index ["object_id"], name: "index_moderator_actions_on_object_id"
+  end
 
   create_table "project_memberships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "member_id"

@@ -2,12 +2,16 @@
 class HomePage < SitePrism::Page
   set_url "/"
 
-  elements :projects, ".project"
+  elements :_projects, ".project"
 
   def project?(title:)
     projects.any? do |project|
       project.find(".title").text == title
     end
+  end
+
+  def projects
+    ElementCollection.new(_projects)
   end
 
   alias has_project? project?

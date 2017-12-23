@@ -7,6 +7,14 @@ Given("I am signed in") do
   app.sign_in_as(user: user)
 end
 
+Given("I am signed in as an instance admin") do
+  app.sign_in_as(user: create(:instance_admin))
+end
+
+Given("a project is pending") do
+  app.project_under_test = create(:project, status: :pending)
+end
+
 Given("there is already a user with the email {string}") do |email|
   User.create(email: email, password: "password")
 end
@@ -33,6 +41,10 @@ end
 
 When("I submit a project titled {string} and summarized as {string}") do |title, summary|
   app.submit_project(title: title, summary: summary)
+end
+
+When("I approve the project") do
+  app.approve_project(project: app.project_under_test)
 end
 
 When("the project titled {string} is approved") do |title|
@@ -85,4 +97,21 @@ end
 Then("there is a public project titled {string} and summarized as {string}") do |title, _summary|
   expect(Project.find_by(title: title)).to be_approved
   expect(app).to have_public_project(title: title)
+end
+
+Then("the moderator actions log shows that I approved the project") do
+  moderator_actions = app.current_user.moderator_actions.where(object: app.project_under_test,
+                                                               action: :approved)
+  expect(moderator_actions).not_to be_empty
+  app.visit(:admin_moderator_actions_page)
+  expect(current_page.moderator_actions).to be_rendering(*moderator_actions)
+end
+
+Then("the project is publicly available on the website") do
+  expect(app).to have_public_project(project: app.project_under_test)
+end
+
+Then("the project is no longer available to be approved") do
+  app.visit(:admin_pending_projects_page)
+  expect(current_page.pending_projects.element_for(app.project_under_test)).not_to be_present
 end

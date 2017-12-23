@@ -13,6 +13,10 @@ module FeatureTestHelpers
   def app
     @app ||= App.new
   end
+
+  def current_page
+    app.current_page
+  end
 end
 
 World(FeatureTestHelpers)

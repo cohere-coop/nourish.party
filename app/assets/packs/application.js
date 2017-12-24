@@ -9,6 +9,6 @@
 
 import Rails from 'rails-ujs'
 
-require('./../src/stylesheets/base.scss')
+require('./../src/stylesheets/application.scss')
 
 Rails.start()

@@ -1,5 +1,6 @@
 $_button-background-color: $action-color;
 $_button-background-color-hover: shade($action-color, 20%);
+$_button-text-color: $white;
 
 #{$all-buttons} {
   appearance: none;
@@ -10,7 +11,7 @@ $_button-background-color-hover: shade($action-color, 20%);
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
-  font-size: 16px;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
@@ -20,7 +21,7 @@ $_button-background-color-hover: shade($action-color, 20%);
   transition: background-color $base-duration $base-timing;
   user-select: none;
   vertical-align: middle;
-  white-space: nowrap;
+  white-space: pre-line;
 
   &:hover {
     background-color: $_button-background-color-hover;

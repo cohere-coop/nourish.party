@@ -11,15 +11,21 @@
   <body>
     <header>
       <% if current_user %>
-        Hi, <%= current_user.email %>
-        <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
+        <div class='.whoami'>
+          Hi, <%= current_user.email %>
+        </div>
+        <nav>
+          <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
+        </nav>
       <% else %>
-        <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
-        <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %>
+        <nav>
+          <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
+          <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %>
+        </nav>
       <% end %>
     </header>
 
-    <main>
+    <main class="<%= yield(:main_class).present? ? yield(:main_class) : '--primary-layout' %>">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>

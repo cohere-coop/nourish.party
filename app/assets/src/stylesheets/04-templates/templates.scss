@@ -1,0 +1,22 @@
+header {
+  @include module-colors;
+  margin: 0;
+  padding: 1rem 2rem;
+}
+
+main {
+  @include module-colors;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 100%;
+  width: calc(100% - 2rem);
+  margin: 1rem auto;
+}
+
+main.--small-centered-content {
+  max-width: 20rem;
+}
+
+main.--primary-layout {
+  max-width: 80rem;
+}

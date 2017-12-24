@@ -2,7 +2,7 @@
 
 ![build status](https://travis-ci.org/wecohere/nourish.party.svg?branch=primary)
 [![Coverage Status](https://coveralls.io/repos/github/wecohere/nourish.party/badge.svg?branch=primary)](https://coveralls.io/github/wecohere/nourish.party?branch=primary)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/2ec7c0159dafe8370ee7/maintainability)](https://codeclimate.com/github/wecohere/nourish.party/maintainability)
 Hello, and thanks for coming by!  This party is to celebrate and nourish creators and their communities.  Whether you're here to help us get set up, or here to enjoy the festivities, we're glad you're here.
 
 ## What is Nourish?

@@ -36,7 +36,7 @@ gem "decent_exposure", "~> 3.0"
 group :development, :test do
   # Debugging
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "pry"
 
   # Test runners and supporting utilities
@@ -66,13 +66,13 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
 
   # Checks that code matches our style guide
-  gem "rubocop", "~> 0.46.0"
+  gem "rubocop", "~> 0.52"
   gem "rubocop-migrations", "~> 0.1"
-  gem "rubocop-rspec", "~> 1.8.0"
+  gem "rubocop-rspec", "~> 1.20.1"
 
   # Runs pre-commit and pre-push checks
   gem "overcommit", "~> 0.41"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

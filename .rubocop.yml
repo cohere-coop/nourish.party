@@ -34,21 +34,12 @@ Metrics/MethodLength:
   Exclude:
     - db/migrate/**/*
 
-
 Style/Documentation:
   Exclude:
     - "db/migrate/**/*"
 
-Style/FileName:
-  Exclude:
-    - "lib/nylas-streaming.rb"
-
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-
-RSpec/DescribeClass:
-  Exclude:
-    - "spec/features/**/*"
 
 RSpec/ExampleLength:
   Enabled: false

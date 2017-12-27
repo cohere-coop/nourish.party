@@ -5,13 +5,13 @@ module Admin
     element :moderator, "*[data-type=moderator]"
     element :created_at, "*[data-type=taken-at]"
 
-    def rendering?(moderator_action)
+    def displaying?(moderator_action)
       moderator.has_text?(moderator_action.moderator.email) &&
         created_at.has_text?(moderator_action.created_at.to_s) &&
-        rendering_summary?(moderator_action)
+        displaying_summary?(moderator_action)
     end
 
-    def rendering_summary?(moderator_action)
+    def displaying_summary?(moderator_action)
       summary.has_text?(moderator_action.action) &&
         summary.has_text?(moderator_action.reason) &&
         summary.has_text?(moderator_action.moderatable.title)

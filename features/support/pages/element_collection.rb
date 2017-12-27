@@ -12,10 +12,10 @@ class ElementCollection < SimpleDelegator
     end
   end
 
-  def rendering?(*objects)
+  def displaying?(*objects)
     objects.all? do |object|
       element = element_for(object)
-      element.present? && element.rendering?(object)
+      element.present? && element.displaying?(object)
     end
   end
 end

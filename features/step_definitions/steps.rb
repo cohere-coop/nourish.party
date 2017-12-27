@@ -105,7 +105,7 @@ Then("the moderator actions log shows that I approved the project") do
                                                                action: :approved)
   expect(moderator_actions).not_to be_empty
   app.visit(:admin_moderator_actions_page)
-  expect(current_page.moderator_actions).to be_rendering(*moderator_actions)
+  expect(current_page.moderator_actions).to be_displaying(*moderator_actions)
 end
 
 Then("the project is publicly available on the website") do

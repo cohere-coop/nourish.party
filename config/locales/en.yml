@@ -1,4 +1,8 @@
 en:
+  shared:
+    links:
+      browse_projects: "Home"
+
   admin:
     approving_project:
       begin: "Approve"

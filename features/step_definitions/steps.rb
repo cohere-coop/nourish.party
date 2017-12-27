@@ -44,7 +44,8 @@ When("I submit a project titled {string} and summarized as {string}") do |title,
 end
 
 When("I approve the project") do
-  app.approve_project(project: app.project_under_test)
+  app.visit(:admin_pending_projects_page)
+  current_page.approve(project: app.project_under_test)
 end
 
 When("the project titled {string} is approved") do |title|

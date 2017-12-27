@@ -1,5 +1,6 @@
 require_relative "element_collection"
 require_relative "admin"
+
 require_relative "home_page"
 require_relative "new_project_page"
 require_relative "sign_up_page"

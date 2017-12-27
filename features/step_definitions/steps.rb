@@ -7,8 +7,9 @@ Given("I am signed in") do
   app.sign_in_as(user: user)
 end
 
-Given("I am signed in as an instance admin") do
-  app.sign_in_as(user: create(:instance_admin))
+Given(/^I am signed in as (a|an) ([a-zA-Z ]*)$/) do |_, user_type|
+  user_type = user_type.tr(" ", "_").downcase.to_sym
+  app.sign_in_as(user: create(user_type))
 end
 
 Given("a project is pending") do
@@ -46,6 +47,15 @@ end
 When("I approve the project") do
   app.visit(:admin_pending_projects_page)
   current_page.approve(project: app.project_under_test)
+end
+
+When("I attempt to approve the project") do
+  begin
+    app.visit(:admin_pending_projects_page)
+    current_page.approve(project: app.project_under_test)
+  rescue NoMethodError => _
+    :this_is_purposeful
+  end
 end
 
 When("the project titled {string} is approved") do |title|
@@ -108,11 +118,24 @@ Then("the moderator actions log shows that I approved the project") do
   expect(current_page.moderator_actions).to be_displaying(*moderator_actions)
 end
 
-Then("the project is publicly available on the website") do
+Then("the project is publicly available") do
   expect(app).to have_public_project(project: app.project_under_test)
+end
+
+Then("the project is not publicly available") do
+  expect(app).not_to have_public_project(project: app.project_under_test)
 end
 
 Then("the project is no longer available to be approved") do
   app.visit(:admin_pending_projects_page)
   expect(current_page.pending_projects.element_for(app.project_under_test)).not_to be_present
+end
+
+Then("the project is still pending approval") do
+  app.project_under_test.reload
+  expect(app.project_under_test).to be_pending
+end
+
+Then("I am forbidden from taking that action") do
+  expect(app).to be_forbidden
 end

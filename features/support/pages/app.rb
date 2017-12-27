@@ -26,6 +26,10 @@ class App
     PAGES[page].new.all_there?
   end
 
+  def forbidden?
+    page.status_code == 403
+  end
+
   def signed_in?
     within("header") do
       !page.has_content?(I18n.t("devise.shared.links.sign_in"))

@@ -1,3 +1,4 @@
+require_relative "../../spec/support/simplecov"
 require "capybara/rails"
 require "capybara/rspec"
 require "selenium-webdriver"

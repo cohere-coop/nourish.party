@@ -4,6 +4,10 @@ en:
       browse_projects: "Home"
 
   admin:
+    shared:
+      links:
+        pending_projects: "Pending Projects"
+        moderator_actions: "Moderator Activity Log"
     approving_project:
       begin: "Approve"
       reason_field: "Why do you think this project is a good fit for Nourish.Party?"

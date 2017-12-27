@@ -14,7 +14,7 @@ module Admin
     def rendering_summary?(moderator_action)
       summary.has_text?(moderator_action.action) &&
         summary.has_text?(moderator_action.reason) &&
-        summary.has_text?(moderator_action.object.title)
+        summary.has_text?(moderator_action.moderatable.title)
     end
 
     def id

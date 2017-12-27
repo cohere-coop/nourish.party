@@ -100,7 +100,7 @@ Then("there is a public project titled {string} and summarized as {string}") do 
 end
 
 Then("the moderator actions log shows that I approved the project") do
-  moderator_actions = app.current_user.moderator_actions.where(object: app.project_under_test,
+  moderator_actions = app.current_user.moderator_actions.where(moderatable: app.project_under_test,
                                                                action: :approved)
   expect(moderator_actions).not_to be_empty
   app.visit(:admin_moderator_actions_page)

@@ -4,8 +4,8 @@ class CreateModeratorActions < ActiveRecord::Migration[5.1]
       t.string :action
       t.string :reason
       t.references :moderator, type: :uuid, index: true
-      t.references :object, type: :uuid, index: true
-      t.string :object_type
+      t.references :moderatable, type: :uuid, index: true
+      t.string :moderatable_type
       t.timestamps
     end
   end

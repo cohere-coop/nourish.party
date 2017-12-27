@@ -10,7 +10,7 @@
       <td data-type="moderator"><%= moderator_action.moderator.email %></td>
       <td data-type="summary">
         <%= moderator_action.action %>
-        <%= moderator_action.object.title %>
+        <%= moderator_action.moderatable.title %>
         &mdash;
         <%=moderator_action.reason %>
       </td>

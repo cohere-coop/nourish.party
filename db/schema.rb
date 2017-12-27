@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20_171_227_194_024) do
     t.string "action"
     t.string "reason"
     t.uuid "moderator_id"
-    t.uuid "object_id"
-    t.string "object_type"
+    t.uuid "moderatable_id"
+    t.string "moderatable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["moderatable_id"], name: "index_moderator_actions_on_moderatable_id"
     t.index ["moderator_id"], name: "index_moderator_actions_on_moderator_id"
-    t.index ["object_id"], name: "index_moderator_actions_on_object_id"
   end
 
   create_table "project_memberships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

@@ -1,6 +1,8 @@
 {
   "name": "nourish.party",
+  "repository": "https://github.com/wecohere/nourish.party",
   "description": "Nourish Party is a community-focused, online payment platform for groups of interdependent creatives.",
+  "keywords": ["payments", "federated", "community"],
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate db:seed"
   },

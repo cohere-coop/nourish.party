@@ -1,4 +1,5 @@
 Given("I am not signed in") do
+  # This step definition intentionally left blank, as being not-signed in is the default
 end
 
 Given("I am signed in") do

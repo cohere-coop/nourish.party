@@ -1,8 +1,13 @@
 require_relative "element_collection"
-require_relative "moderation"
+
+require_relative "project_status_change_form_section"
+require_relative "project_status_change_section"
+require_relative "pending_project_section"
 
 require_relative "home_page"
 require_relative "new_project_page"
+require_relative "pending_projects_page"
+require_relative "project_status_changes_page"
 require_relative "sign_up_page"
 require_relative "sign_in_page"
 
@@ -19,8 +24,8 @@ class App
     new_project_page: NewProjectPage,
     sign_in_page: SignInPage,
     sign_up_page: SignUpPage,
-    project_status_changes_page: Moderation::ProjectStatusChangesPage,
-    pending_projects_page: Moderation::PendingProjectsPage
+    project_status_changes_page: ProjectStatusChangesPage,
+    pending_projects_page: PendingProjectsPage
   }.freeze
 
   def on?(page)

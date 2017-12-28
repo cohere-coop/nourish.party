@@ -4,8 +4,8 @@
   <tr data-type="pending-project" data-id="<%= pending_project.id %>">
     <td><%=pending_project.title%></td>
     <td>
-      <%= link_to(t('moderation.approving_project.begin'),
-                  new_moderation_pending_project_project_approval_path(pending_project),
+      <%= link_to(t('approving_project.begin'),
+                  new_pending_project_project_approval_path(pending_project),
                   { data: { action: "begin-approval" } }) %>
     </td>
   </tr>

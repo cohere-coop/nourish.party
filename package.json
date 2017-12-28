@@ -1,7 +1,7 @@
 {
   "name": "nourish_party",
   "engines": {
-    "node": "9.3.0"
+    "node": "9.X"
   },
   "private": true,
   "scripts": {

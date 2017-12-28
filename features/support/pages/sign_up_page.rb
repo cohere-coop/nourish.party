@@ -1,6 +1,5 @@
-# Represents the page used to register for the application. Encapsulates all registration functionality for
-# feature tests.
-class RegistrationPage < SitePrism::Page
+# Encapsulates sign up functionality for feature tests
+class SignUpPage < SitePrism::Page
   set_url "/users/sign_up/"
 
   element :email_field, "input[name='user[email]']"

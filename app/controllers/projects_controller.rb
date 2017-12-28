@@ -1,5 +1,7 @@
 # Exposes CRUD actions for projects
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
+
   expose :project, scope: -> { current_user.projects }
   def new; end
 

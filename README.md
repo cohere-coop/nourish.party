@@ -9,8 +9,12 @@ Hello, and thanks for coming by!  This party is to celebrate and nourish creator
 Nourish is software that lets you receive and take subscriptions, and manage access to digital goodies based on subscription level.  It's open source software that is free for you to download, install, and use.  All costs and benefits are solely managed by you.  Please see the license for more details.
 
 ## How do I use it?
-(installation details go here)
-(reminders that Stripe and AWS/Heroku/etc require service fees)
+There are two ways you can get started using Nourish:
+
+* You can join an existing Nourish instance and submit your project. For instance, [nourish.party](https://www.nourish.party) is hosting this project.
+* You can host your own! While we don't have super detailed setup instructions *just* yet, you can launch your own instance with your [Heroku](https://heroku.com) account. If you choose to host your own instance, you'll be responsible for security, hosting, maintenance, configuration, and moderating your community. Doesn't that sound fun!? Just click the big purple button below to start hosting your own Nourish Party!
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/wecohere/nourish.party/tree/primary&env[FORCE_SEED]=false)
 
 ## This is awesome! who are you and why are you doing this?
 Nourish wouldn't be possible with several parties.

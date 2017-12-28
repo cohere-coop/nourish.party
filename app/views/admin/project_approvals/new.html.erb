@@ -1,9 +1,0 @@
-<h3><%= pending_project.title %></h3>
-<p><%= pending_project.summary %></p>
-<%= form_for(project_approval,
-             url: admin_pending_project_project_approvals_url(pending_project),
-             html: { data: { type: "moderator-action-form" } }) do |form| %>
-  <%= form.label :reason, t('admin.approving_project.reason_field') %><%= form.text_area :reason %>
-  <%= link_to t('admin.approving_project.cancel'), admin_pending_projects_path %>
-  <%= form.submit(t('admin.approving_project.complete')) %>
-<% end %>

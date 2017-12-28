@@ -1,5 +1,5 @@
 require_relative "element_collection"
-require_relative "admin"
+require_relative "moderation"
 
 require_relative "home_page"
 require_relative "new_project_page"
@@ -14,12 +14,12 @@ class App
 
   attr_accessor :current_user, :project_under_test, :current_page
   PAGES = {
-    admin_moderator_actions_page: Admin::ModeratorActionsPage,
-    admin_pending_projects_page: Admin::PendingProjectsPage,
     home_page: HomePage,
     new_project_page: NewProjectPage,
     sign_in_page: SignInPage,
-    sign_up_page: SignUpPage
+    sign_up_page: SignUpPage,
+    moderator_actions_page: Moderation::ModeratorActionsPage,
+    pending_projects_page: Moderation::PendingProjectsPage
   }.freeze
 
   def on?(page)

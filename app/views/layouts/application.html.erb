@@ -17,11 +17,11 @@
       <% end %>
       <nav>
         <%= link_to t('shared.links.browse_projects'), root_path %>
-        <% if current_user && current_user.instance_admin? %>
-          <%= link_to t('admin.shared.links.pending_projects'), admin_pending_projects_path %>
-          <%= link_to t('admin.shared.links.moderator_actions'), admin_moderator_actions_path %>
-        <% end %>
         <% if current_user %>
+          <% if current_user.instance_admin? %>
+            <%= link_to t('moderation.shared.links.pending_projects'), moderation_pending_projects_path %>
+            <%= link_to t('moderation.shared.links.moderator_actions'), moderation_moderator_actions_path %>
+          <% end %>
           <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>

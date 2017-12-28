@@ -1,4 +1,4 @@
-module Admin
+module Moderation
   # A entry in the moderator action logs
   class ModeratorActionSection < SitePrism::Section
     element :summary, "*[data-type=summary]"

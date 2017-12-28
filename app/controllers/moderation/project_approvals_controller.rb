@@ -1,6 +1,6 @@
-module Admin
+module Moderation
   # Allows a project to be approved
-  class ProjectApprovalsController < AdminController
+  class ProjectApprovalsController < ModerationController
     expose(:project_approval, scope: -> { pending_project.moderator_actions }, model: :moderator_action)
     expose(:pending_project, scope: -> { Project.pending }, model: :project)
 
@@ -9,7 +9,7 @@ module Admin
     def create
       if project_approval.save
         pending_project.approve
-        redirect_to admin_pending_projects_path
+        redirect_to moderation_pending_projects_path
       else
         render :new
       end

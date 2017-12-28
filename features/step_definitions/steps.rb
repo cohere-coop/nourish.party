@@ -7,7 +7,7 @@ Given("I am signed in") do
   app.sign_in_as(user: user)
 end
 
-Given(/^I am signed in as (a|an) ([a-zA-Z ]*)$/) do |_, user_type|
+Given(/^I sign in as (a|an) ([a-zA-Z ]*)$/) do |_, user_type|
   user_type = user_type.tr(" ", "_").downcase.to_sym
   app.sign_in_as(user: create(user_type))
 end
@@ -45,13 +45,13 @@ When("I submit a project titled {string} and summarized as {string}") do |title,
 end
 
 When("I approve the project") do
-  app.visit(:admin_pending_projects_page)
+  app.visit(:pending_projects_page)
   current_page.approve(project: app.project_under_test)
 end
 
 When("I attempt to approve the project") do
   begin
-    app.visit(:admin_pending_projects_page)
+    app.visit(:pending_projects_page)
     current_page.approve(project: app.project_under_test)
   rescue NoMethodError => _
     :this_is_purposeful
@@ -114,7 +114,7 @@ Then("the moderator actions log shows that I approved the project") do
   moderator_actions = app.current_user.moderator_actions.where(moderatable: app.project_under_test,
                                                                action: :approved)
   expect(moderator_actions).not_to be_empty
-  app.visit(:admin_moderator_actions_page)
+  app.visit(:moderator_actions_page)
   expect(current_page.moderator_actions).to be_displaying(*moderator_actions)
 end
 
@@ -127,7 +127,7 @@ Then("the project is not publicly available") do
 end
 
 Then("the project is no longer available to be approved") do
-  app.visit(:admin_pending_projects_page)
+  app.visit(:pending_projects_page)
   expect(current_page.pending_projects.element_for(app.project_under_test)).not_to be_present
 end
 

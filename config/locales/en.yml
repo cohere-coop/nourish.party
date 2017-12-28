@@ -3,7 +3,7 @@ en:
     links:
       browse_projects: "Home"
 
-  admin:
+  moderation:
     shared:
       links:
         pending_projects: "Pending Projects"

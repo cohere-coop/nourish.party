@@ -1,6 +1,6 @@
-module Admin
+module Moderation
   # Base controller all app controllers should inherit from to ensure they inherit the correct settings
-  class AdminController < ApplicationController
+  class ModerationController < ApplicationController
     protect_from_forgery with: :exception
     before_action :forbid_non_instance_admins
 

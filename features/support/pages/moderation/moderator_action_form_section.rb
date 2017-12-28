@@ -1,4 +1,4 @@
-module Admin
+module Moderation
   # Form that is shown when taking a actions as a moderator
   class ModeratorActionFormSection < SitePrism::Section
     element :reason_field, '*[name="moderator_action[reason]"]'

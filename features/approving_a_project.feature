@@ -5,7 +5,7 @@ Feature: Approving a Project
 
 Scenario: Admin approves a project
   Given a project is pending
-  And I am signed in as an instance admin
+  And I sign in as an instance admin
   When I approve the project
   Then the moderator actions log shows that I approved the project
   And the project is publicly available
@@ -13,7 +13,7 @@ Scenario: Admin approves a project
 
 Scenario: Non admin attempts to approve a project
   Given a project is pending
-  And I log in as a user
+  And I sign in as a user
   When I attempt to approve the project
   Then I am forbidden from taking that action
   And the project is not publicly available

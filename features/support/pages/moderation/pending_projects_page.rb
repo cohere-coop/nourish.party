@@ -1,7 +1,7 @@
-module Admin
+module Moderation
   # Encapsulates user interactions with the new project page
   class PendingProjectsPage < SitePrism::Page
-    set_url "/admin/pending_projects"
+    set_url "/moderation/pending_projects"
     sections :_pending_projects, PendingProjectSection, "*[data-type='pending-project']"
     section :moderator_action_form, ModeratorActionFormSection, "*[data-type='moderator-action-form']"
 

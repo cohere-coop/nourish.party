@@ -23,5 +23,7 @@
 /node_modules
 /coverage
 /design/styleguide
+/doc
+/.yardoc
 
 .env

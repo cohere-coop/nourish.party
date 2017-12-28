@@ -45,3 +45,11 @@ brew services start postgresql
  If you get a Ruby version error, try installing the specified version of Ruby
  using your favorite Ruby version manager. For RVM, this will be
  `rvm install 2.4.2`. Then try running `bin/setup` again.
+
+### Get to know the code
+
+We use `yard` to document our codebase; for a handy-dandy documentation server, you can always run:
+
+```
+bin/yard server
+```

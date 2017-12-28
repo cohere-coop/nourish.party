@@ -1,27 +1,41 @@
-require "pages/home_page"
-require "pages/new_project_page"
-require "pages/registration_page"
-require "pages/login_page"
+require_relative "home_page"
+require_relative "new_project_page"
+require_relative "sign_up_page"
+require_relative "sign_in_page"
 
 # Encapsulates interactions with the application for feature testing purposes. At some point this should be an
 # adapter that delegates most of it's behavior to the appropriate pages, instead of manually wrapping it as it
 # does now.
 class App
-  attr_accessor :logged_in_user
+  attr_accessor :current_user, :current_page
   include Capybara::DSL
+  PAGES = {
+    home_page: HomePage,
+    new_project_page: NewProjectPage,
+    sign_in_page: SignInPage,
+    sign_up_page: SignUpPage
+  }.freeze
 
-  def logged_in?
+  def on?(page)
+    PAGES[page].new.all_there?
+  end
+
+  def signed_in?
     within("header") do
       !page.has_content?(I18n.t("devise.shared.links.sign_in"))
     end
   end
 
-  def logged_in_as?(user: nil, email: nil)
+  def signed_in_as?(user: nil, email: nil)
     email ||= user.email
-
     within("header") do
       page.has_content?(email)
     end
+  end
+
+  def visit(page)
+    self.current_page = PAGES[page].new
+    current_page.load
   end
 
   def new_project_page
@@ -29,32 +43,25 @@ class App
   end
 
   def submit_project(title:, summary:)
-    new_project_page.load
-    new_project_page.submit(title: title, summary: summary)
+    visit(:new_project_page)
+    current_page.submit(title: title, summary: summary)
   end
 
-  def registration_page
-    @registration_page ||= RegistrationPage.new
+  def sign_up_as(email:, password:)
+    visit(:sign_up_page)
+    current_page.submit(email: email, password: password)
+    self.current_user = User.find_by(email: email)
   end
 
-  def register_as(email:, password:)
-    registration_page.load
-    registration_page.submit(email: email, password: password)
-  end
-
-  def login_page
-    @login_page ||= LoginPage.new
-  end
-
-  def login_as(user: nil, email: nil, password: nil)
+  def sign_in_as(user: nil, email: nil, password: nil)
     email ||= user.email
     password ||= user.password
-    self.logged_in_user = user || User.find_by(email: email)
-    login_page.load
-    login_page.submit(email: email, password: password)
+    self.current_user = user || User.find_by(email: email)
+    visit(:sign_in_page)
+    current_page.submit(email: email, password: password)
   end
 
-  def logout
+  def sign_out
     page.click_on(I18n.t("devise.shared.links.sign_out"))
   end
 
@@ -75,13 +82,9 @@ class App
     page.find_all(".error").map(&:text) + [page.find("#error_explanation").text]
   end
 
-  def home_page
-    @home_page ||= HomePage.new
-  end
-
   def public_project?(title:)
-    home_page.load
-    home_page.project?(title: title)
+    visit(:home_page)
+    current_page.project?(title: title)
   end
   alias has_public_project? public_project?
 end

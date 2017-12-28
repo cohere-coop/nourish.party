@@ -7,7 +7,7 @@ Given("I am signed in") do
   app.sign_in_as(user: user)
 end
 
-Given(/^I sign in as (a|an) ([a-zA-Z ]*)$/) do |_, user_type|
+Given(/^I sign in as (a|an) (user|instance admin|project creator|supporter)$/) do |_, user_type|
   user_type = user_type.tr(" ", "_").downcase.to_sym
   app.sign_in_as(user: create(user_type))
 end

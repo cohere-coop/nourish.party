@@ -1,3 +1,15 @@
+// Button
+//
+// Your standard button suitable for clicking.
+//
+// :hover   - Highlights when hovering.
+//
+// Markup:
+// <button>Button</button>
+//
+// Style guide: components.button
+
+
 $_button-background-color: $action-color;
 $_button-background-color-hover: shade($action-color, 20%);
 $_button-text-color: $white;

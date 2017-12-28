@@ -1,0 +1,14 @@
+en:
+  shared:
+    links:
+      browse_projects: "Home"
+      pending_projects: "Pending Projects"
+      project_status_changes: "Moderator Activity Log"
+  approving_project:
+    begin: "Approve"
+    reason_field: "Why do you think this project is a good fit for Nourish.Party?"
+    cancel: "Cancel"
+    complete: "Approve"
+
+  cta:
+    submit_your_project_for_approval: "Submit your project"

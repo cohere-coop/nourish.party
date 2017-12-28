@@ -1,5 +1,13 @@
+require_relative "element_collection"
+
+require_relative "project_status_change_form_section"
+require_relative "project_status_change_section"
+require_relative "pending_project_section"
+
 require_relative "home_page"
 require_relative "new_project_page"
+require_relative "pending_projects_page"
+require_relative "project_status_changes_page"
 require_relative "sign_up_page"
 require_relative "sign_in_page"
 
@@ -7,17 +15,25 @@ require_relative "sign_in_page"
 # adapter that delegates most of it's behavior to the appropriate pages, instead of manually wrapping it as it
 # does now.
 class App
-  attr_accessor :current_user, :current_page
   include Capybara::DSL
+
+  attr_accessor :current_user, :current_page, :project_under_test
+
   PAGES = {
     home_page: HomePage,
     new_project_page: NewProjectPage,
     sign_in_page: SignInPage,
-    sign_up_page: SignUpPage
+    sign_up_page: SignUpPage,
+    project_status_changes_page: ProjectStatusChangesPage,
+    pending_projects_page: PendingProjectsPage
   }.freeze
 
   def on?(page)
     PAGES[page].new.all_there?
+  end
+
+  def forbidden?
+    page.status_code == 403
   end
 
   def signed_in?
@@ -38,8 +54,9 @@ class App
     current_page.load
   end
 
-  def new_project_page
-    @new_project_page ||= NewProjectPage.new
+  def approve_project(project:)
+    visit(:admin_pending_projects_page)
+    current_page.approve(project: project)
   end
 
   def submit_project(title:, summary:)
@@ -82,7 +99,8 @@ class App
     page.find_all(".error").map(&:text) + [page.find("#error_explanation").text]
   end
 
-  def public_project?(title:)
+  def public_project?(project: nil, title: nil)
+    title ||= project.title
     visit(:home_page)
     current_page.project?(title: title)
   end

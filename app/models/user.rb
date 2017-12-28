@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   has_many :project_memberships, foreign_key: :member_id
   has_many :projects, through: :project_memberships
+  has_many :project_status_changes, foreign_key: :moderator_id
 end

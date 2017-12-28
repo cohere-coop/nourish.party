@@ -12,7 +12,8 @@ require_relative "sign_in_page"
 class App
   include Capybara::DSL
 
-  attr_accessor :current_user, :project_under_test, :current_page
+  attr_accessor :current_user, :current_page, :project_under_test
+
   PAGES = {
     home_page: HomePage,
     new_project_page: NewProjectPage,

@@ -7,8 +7,11 @@ class ProjectApprovalsController < ModerationController
   def new; end
 
   def create
-    if project_approval.save
-      pending_project.approve
+    ProjectStatusChange.transaction do
+      pending_project.approve if project_approval.save
+    end
+
+    if project_approval.persisted?
       redirect_to pending_projects_path
     else
       render :new

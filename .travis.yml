@@ -2,6 +2,7 @@ language: ruby
 rvm: 2.4.2
 cache:
   bundler: true
+  yarn: true
 addons:
   postgresql: "9.6"
 services:

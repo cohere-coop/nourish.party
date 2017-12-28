@@ -1,0 +1,35 @@
+{
+  "name": "nourish.party",
+  "description": "Nourish Party is a community-focused, online payment platform for groups of interdependent creatives.",
+  "scripts": {
+  },
+  "env": {
+    "LANG": "en_US.UTF-8",
+    "RACK_ENV": "production",
+    "RAILS_ENV": "production",
+    "RAILS_LOG_TO_STDOUT": "enabled",
+    "RAILS_SERVE_STATIC_FILES": "enabled",
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}

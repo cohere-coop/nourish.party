@@ -55,6 +55,10 @@ group :development, :test do
   gem "coveralls", require: false
 end
 
+group :assets do
+  gem "uglifier", "~> 4.0"
+end
+
 group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
 

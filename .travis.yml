@@ -2,13 +2,23 @@ language: ruby
 rvm: 2.4.2
 cache:
   bundler: true
+  yarn: true
 addons:
-  postgresql: "9.6"
+  postgresql: '9.6'
 services:
-  - postgresql
+- postgresql
 install:
-  - bin/yarn
-  - bin/bundle
+- bin/yarn
+- bin/bundle
 before_script:
-  - bin/rails db:setup
-  - bin/webpack
+- bin/rails db:setup
+- bin/webpack
+deploy:
+  provider: heroku
+  app:
+    primary: nourish-party
+  api_key:
+    secure: esuLz7aIIcB/74MceNEMlG9jpxibnR9rqefCtxrNOhacoX81O/QLq5X47jP5adLh+e0ZA0lW+LhJ3YVpLwxul1WBAc9LR94TB3mEc4zTnKu8SMrid8oiGOIo4epTjoU/AzhL5B9pJMRWRSAhh6m3R3NGm0CnyY/XShYazJ5tlmhWnOuUQC/BVCHTGWabHH2pz/IgiM4y7E/PDK8wSp8VS4QJdB2KQATswb3NzaVz815cwjOG6DGZE5tl5nvVZtJFawfnWO/Xob4Lri4M7v8YaH1YkTUsDSDL27WqYATMbI2aCtMlN7vC9HKrIPy2wRansr7a18aoH4gwxb8sVbBroP30ORlyKbIG8lf8iM5zbwFbC4eK1LSCpX3jIJo2YUo43qmKjJwdYRCU+jAiV5ZSr2FYLNSPT1Ha6G1DuzpU5QqoPP+H5lIxwRIyu1NSXT1G/29lAE1ZfU7jV6IDc+9YlDAJLIe/oR4tlrLOWblMVR2ivgs8dmNmDkXA8oT6tiHfP+SYE5R8EHe891LK8GjggcdfQOgCdmhAIDxrXwb5zN63sz+ZDQqj39JJSN8Lhe/0N2nGPYGGEwSHMQprQyWx4EUqNN2Nd6rXpPHhN6jNTxwyDa7RthFJTmgk5TC1W+onYKEB8iqhkIFC0hEoJyDjNTeVgft77y6zeqxm+8+PNeE=
+  run:
+  - "rake db:migrate"
+  - restart

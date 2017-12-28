@@ -12,3 +12,8 @@
 @import "media";
 @import "tables";
 @import "typography";
+@import "mixins";
+
+body {
+  background-color: $ground-background-color;
+}

@@ -1,0 +1,12 @@
+input[type=checkbox] {
+  display: inline-block;
+}
+
+input[type=checkbox] + label {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.field, .actions {
+  margin: 1.5em auto;
+}

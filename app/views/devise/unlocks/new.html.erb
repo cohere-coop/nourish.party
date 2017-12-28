@@ -1,0 +1,18 @@
+<%- content_for :main_class, '--small-centered-content' %>
+
+<h1>Resend unlock instructions</h1>
+
+<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Resend unlock instructions" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

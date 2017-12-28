@@ -1,4 +1,4 @@
-<h3><%= pending_project.title %></h3>
+<h1>Approve <%= pending_project.title %>?</h1>
 <p><%= pending_project.summary %></p>
 <%= form_for(project_approval,
              url: pending_project_project_approvals_url(pending_project),

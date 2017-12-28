@@ -3,7 +3,13 @@
 <%= form_for(project_approval,
              url: pending_project_project_approvals_url(pending_project),
              html: { data: { type: "project-status-change-form" } }) do |form| %>
-  <%= form.label :reason, t('approving_project.reason_field') %><%= form.text_area :reason %>
-  <%= link_to t('approving_project.cancel'), pending_projects_path %>
-  <%= form.submit(t('approving_project.complete')) %>
+  <div class="fields">
+    <%= form.label :reason, t('approving_project.reason_field') %>
+    <%= form.text_area :reason %>
+  </div>
+
+  <div class="actions">
+    <%= link_to t('approving_project.cancel'), pending_projects_path %>
+    <%= form.submit(t('approving_project.complete')) %>
+  </div>
 <% end %>

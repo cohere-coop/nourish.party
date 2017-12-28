@@ -19,7 +19,7 @@ class App
     new_project_page: NewProjectPage,
     sign_in_page: SignInPage,
     sign_up_page: SignUpPage,
-    moderator_actions_page: Moderation::ModeratorActionsPage,
+    project_status_changes_page: Moderation::ProjectStatusChangesPage,
     pending_projects_page: Moderation::PendingProjectsPage
   }.freeze
 

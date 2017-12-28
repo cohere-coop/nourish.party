@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       resources :project_approvals, only: %i[new create]
     end
 
-    resources :moderator_actions, only: [:index]
+    resources :project_status_changes, only: [:index]
   end
 end

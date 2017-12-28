@@ -1,6 +1,6 @@
 # Represents a Project in the database
 class Project < ApplicationRecord
-  has_many :moderator_actions, as: :moderatable
+  has_many :project_status_changes
 
   has_many :project_memberships
   has_many :members, through: :project_memberships

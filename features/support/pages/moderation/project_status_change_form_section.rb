@@ -1,7 +1,7 @@
 module Moderation
   # Form that is shown when taking a actions as a moderator
-  class ModeratorActionFormSection < SitePrism::Section
-    element :reason_field, '*[name="moderator_action[reason]"]'
+  class ProjectStatusChangeFormSection < SitePrism::Section
+    element :reason_field, '*[name="project_status_change[reason]"]'
     element :submit_button, '*[name="commit"]'
     def submit(reason:)
       reason_field.set reason

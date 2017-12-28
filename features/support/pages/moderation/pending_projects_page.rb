@@ -3,7 +3,8 @@ module Moderation
   class PendingProjectsPage < SitePrism::Page
     set_url "/moderation/pending_projects"
     sections :_pending_projects, PendingProjectSection, "*[data-type='pending-project']"
-    section :moderator_action_form, ModeratorActionFormSection, "*[data-type='moderator-action-form']"
+    section :project_status_change_form, ProjectStatusChangeFormSection,
+            "*[data-type='project-status-change-form']"
 
     def pending_projects
       ElementCollection.new(_pending_projects)
@@ -12,7 +13,7 @@ module Moderation
     def approve(project:, reason: "I just like it, OK?")
       project_to_approve = pending_projects.element_for(project)
       project_to_approve.begin_approval_button.click
-      moderator_action_form.submit(reason: reason)
+      project_status_change_form.submit(reason: reason)
     end
 
     def t(*args, **kwargs)

@@ -110,12 +110,12 @@ Then("there is a public project titled {string} and summarized as {string}") do 
   expect(app).to have_public_project(title: title)
 end
 
-Then("the moderator actions log shows that I approved the project") do
-  moderator_actions = app.current_user.moderator_actions.where(moderatable: app.project_under_test,
-                                                               action: :approved)
-  expect(moderator_actions).not_to be_empty
-  app.visit(:moderator_actions_page)
-  expect(current_page.moderator_actions).to be_displaying(*moderator_actions)
+Then("the project status changes log shows that I approved the project") do
+  project_status_changes = app.current_user.project_status_changes.where(project: app.project_under_test,
+                                                                         action: :approved)
+  expect(project_status_changes).not_to be_empty
+  app.visit(:project_status_changes_page)
+  expect(current_page.project_status_changes).to be_displaying(*project_status_changes)
 end
 
 Then("the project is publicly available") do

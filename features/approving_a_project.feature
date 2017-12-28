@@ -7,7 +7,7 @@ Scenario: Admin approves a project
   Given a project is pending
   And I sign in as an instance admin
   When I approve the project
-  Then the moderator actions log shows that I approved the project
+  Then the project status changes log shows that I approved the project
   And the project is publicly available
   And the project is no longer available to be approved
 

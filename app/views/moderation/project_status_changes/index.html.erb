@@ -1,0 +1,20 @@
+<table data-type="project-status-changes">
+  <tr>
+    <th>Time of Action</th>
+    <th>Moderator</th>
+    <th>Summary</th>
+  </tr>
+  <%- project_status_changes.each do |project_status_change| %>
+    <tr data-id="<%= project_status_change.id %>" data-type="project-status-change">
+      <td data-type="taken-at"><%= project_status_change.created_at %></td>
+      <td data-type="moderator"><%= project_status_change.moderator.email %></td>
+      <td data-type="summary">
+        <%= project_status_change.action %>
+        <%= project_status_change.project.title %>
+        &mdash;
+        <%=project_status_change.reason %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

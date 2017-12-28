@@ -16,6 +16,10 @@ TL;DR: if you only run `bin/rails s` in local development when you want to work 
 
 Asset gems don't work; look for equivalent npm packages instead.
 
+## Styleguide
+
+While running BOTH `bin/rails s` and `bin/webpack-dev-server`, if you visit `/packs/styleguide` you'll be able to view our application's design style guide. We use [kss-node](https://github.com/kss-node/kss-node) to generate it.
+
 ## Frameworks
 
 Is `rails-ujs` plus `turbolinks` a framework? Because that's what we're using. That, and as little vanilla JavaScript as is feasible. We might add a [svelte](https://svelte.technology) component or three later if we really need them. We would prefer to design such that we don't need them.

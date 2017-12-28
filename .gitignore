@@ -21,6 +21,7 @@
 /public/packs
 /public/packs-test
 /node_modules
-
 /coverage
+/design/styleguide
+
 .env

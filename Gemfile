@@ -76,6 +76,9 @@ group :development do
 
   # Runs pre-commit and pre-push checks
   gem "overcommit", "~> 0.41"
+
+  # Document ALL THE THINGS!
+  gem "yard"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

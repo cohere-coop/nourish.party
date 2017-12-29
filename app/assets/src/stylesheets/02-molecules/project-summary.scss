@@ -1,0 +1,37 @@
+// Project summary
+//
+// Displays partial information about a project, along with controls.
+//
+// Markup:
+// <!--
+// Rails partial: `projects/summary`
+// assumes `current_user` is set; requires local `project`
+// -->
+// <div class="project-summary">
+//   <h2>Space Unicorns</h2>
+//   <p class="summary">Ride a space unicorn!</p>
+//   <div class="actions">
+//     <a href="#">Approve</a>
+//   </div>
+// </div>
+//
+// Style guide: molecules.project-summary
+
+
+@media (min-width: 54rem) {
+  .project-summary {
+    display: grid;
+    width: 50rem;
+    grid-template-columns: [main] 1fr [controls] 10rem;
+    grid-auto-rows: minmax(0, auto);
+  }
+
+  .project-summary > .title, .project-summary > .summary {
+    grid-column: main;
+  }
+
+  .project-summary > .actions {
+    grid-column: controls;
+    grid-row: 1 / span 2;
+  }
+}

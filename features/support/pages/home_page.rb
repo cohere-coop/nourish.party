@@ -2,7 +2,7 @@
 class HomePage < SitePrism::Page
   set_url "/"
 
-  elements :_projects, ".project"
+  elements :_projects, "*[data-type=project]"
 
   def project?(title:)
     projects.any? do |project|

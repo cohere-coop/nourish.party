@@ -1,7 +1,7 @@
 # Encapsulates user interactions with the new project page
 class PendingProjectsPage < SitePrism::Page
   set_url "/pending_projects"
-  sections :_pending_projects, PendingProjectSection, "*[data-type='pending-project']"
+  sections :_pending_projects, PendingProjectSection, "*[data-type='project']"
   section :project_status_change_form, ProjectStatusChangeFormSection,
           "*[data-type='project-status-change-form']"
 

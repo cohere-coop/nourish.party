@@ -3,7 +3,7 @@ Given("I am not signed in") do
 end
 
 Given("I am signed in") do
-  user = create(:user)
+  user = create(:registered_user)
   app.sign_in_as(user: user)
 end
 
@@ -17,11 +17,11 @@ Given("a project is pending") do
 end
 
 Given("there is already a user with the email {string}") do |email|
-  User.create(email: email, password: "password")
+  create(:registered_user, email: email, password: "password")
 end
 
 Given("there is already a user with the email {string} and the password {string}") do |email, password|
-  User.create(email: email, password: password)
+  create(:registered_user, email: email, password: password)
 end
 
 When("I sign up with the email {string} and the password {string}") do |email, password|

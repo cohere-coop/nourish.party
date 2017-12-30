@@ -1,14 +1,14 @@
 require "rails_helper"
 
-RSpec.describe User, type: :model do
+RSpec.describe RegisteredUser, type: :model do
   describe "#instance_admin?" do
     it "defaults to false" do
-      user = User.new
+      user = RegisteredUser.new
       expect(user).not_to be_instance_admin
     end
 
     it "may be updated to true" do
-      user = User.new(instance_admin: true)
+      user = RegisteredUser.new(instance_admin: true)
       expect(user).to be_instance_admin
     end
   end

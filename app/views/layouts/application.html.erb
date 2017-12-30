@@ -10,22 +10,22 @@
 
   <body>
     <header>
-      <% if current_user %>
+      <% if current_registered_user %>
         <div class='.whoami'>
-          Hi, <%= current_user.email %>
+          Hi, <%= current_registered_user.email %>
         </div>
       <% end %>
       <nav>
         <%= link_to t('shared.links.browse_projects'), root_path %>
-        <% if current_user %>
-          <% if current_user.instance_admin? %>
+        <% if current_registered_user %>
+          <% if current_registered_user.instance_admin? %>
             <%= link_to t('shared.links.pending_projects'), pending_projects_path %>
             <%= link_to t('shared.links.project_status_changes'), project_status_changes_path %>
           <% end %>
-          <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
+          <%= link_to t('devise.shared.links.sign_out'), destroy_registered_user_session_path, method: :delete %>
         <% else %>
-          <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %>
-          <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %>
+          <%= link_to t('devise.shared.links.sign_in'), new_registered_user_session_path %>
+          <%= link_to t('devise.shared.links.sign_up'), new_registered_user_registration_path %>
         <% end %>
       </nav>
     </header>

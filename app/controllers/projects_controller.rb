@@ -2,7 +2,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_registered_user!
 
-  expose :project, scope: -> { current_registered_user.projects }
+  expose :project, scope: -> { current_user.projects }
   def new; end
 
   def create

@@ -10,15 +10,15 @@
 
   <body>
     <header>
-      <% if current_registered_user %>
+      <% if current_user.registered? %>
         <div class='.whoami'>
-          Hi, <%= current_registered_user.email %>
+          Hi, <%= current_user.email %>
         </div>
       <% end %>
       <nav>
         <%= link_to t('shared.links.browse_projects'), root_path %>
-        <% if current_registered_user %>
-          <% if current_registered_user.instance_admin? %>
+        <% if current_user.registered? %>
+          <% if current_user.instance_admin? %>
             <%= link_to t('shared.links.pending_projects'), pending_projects_path %>
             <%= link_to t('shared.links.project_status_changes'), project_status_changes_path %>
           <% end %>

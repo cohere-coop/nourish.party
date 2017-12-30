@@ -20,6 +20,6 @@ class ProjectApprovalsController < ModerationController
 
   private def project_approval_params
     params.require(:project_status_change)
-      .permit(:reason).merge(moderator: current_registered_user, action: :approved)
+      .permit(:reason).merge(moderator: current_user, action: :approved)
   end
 end

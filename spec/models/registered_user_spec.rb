@@ -12,4 +12,16 @@ RSpec.describe RegisteredUser, type: :model do
       expect(user).to be_instance_admin
     end
   end
+
+  describe "#registered?" do
+    it "is false for unpersisted users" do
+      user = RegisteredUser.new
+      expect(user).not_to be_registered
+    end
+
+    it "is true for persisted users" do
+      user = FactoryBot.create(:registered_user)
+      expect(user).to be_registered
+    end
+  end
 end

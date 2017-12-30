@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   def new; end
 
   def create
-    current_registered_user.project_memberships.create(project: project)
+    current_user.project_memberships.create(project: project)
     if project.save
       redirect_to root_path
     else

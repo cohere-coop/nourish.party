@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+gem install bundler --conservative
+bundle install
+bin/yarn

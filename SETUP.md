@@ -46,10 +46,18 @@ brew services start postgresql
  using your favorite Ruby version manager. For RVM, this will be
  `rvm install 2.4.2`. Then try running `bin/setup` again.
 
-### Get to know the code
-
-We use `yard` to document our codebase; for a handy-dandy documentation server, you can always run:
-
+### Run the Application
 ```
-bin/yard server
+cd /path/to/nourish.party
+bin/serve
 ```
+This starts several processes:
+
+1. The actual application, running on http://localhost:3000
+1. The asset builder and styleguide, which can be viewed at on http://localhost:3000/packs/styleguide
+1. The ruby code documentation viewer, available at http://localhost:8808/
+1. The installed gems code documentation viewer, available at http://localhost:8809/
+
+### Get to know the Code
+
+Once you are running the server, you can explore the style guide by pointing your browser to http://localhost:3000/packs/styleguide as well as explore the documented code by opening http://localhost:8808/

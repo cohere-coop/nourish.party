@@ -1,9 +1,6 @@
-<%- projects.each do |project| %>
-  <div class="project">
-    <h2 class="title"><%= project.title %></h2>
-    <p class="summary"><%= project.summary %></p>
-  </div>
-<%- end %>
+<h1>Welcome to nourish.party!</h1>
+
+<%= render partial: 'projects/summary', collection: projects, as: :project %>
 
 <%= link_to t('cta.submit_your_project_for_approval'), new_project_path %>
 

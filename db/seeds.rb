@@ -9,5 +9,5 @@
 
 raise "Probably shouldn't run this on production..." if Rails.env.production? && ENV["FORCE_SEED"] != "true"
 
-User.create_with(password: "password", instance_admin: true)
-    .find_or_create_by(email: "admin@example.com")
+RegisteredUser.create_with(password: "password", instance_admin: true)
+              .find_or_create_by(email: "admin@example.com")

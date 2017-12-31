@@ -2,7 +2,7 @@
 <p>Oops! You probably got here because someone sent you a link to a thing you aren't allowed to access!  Ask
 whoever sent you the link to invite you.
 
-<% if current_user %>
+<% if current_user.registered? %>
   The email address you use for this is <%= current_user.email %>
 <% end %>
 </p>

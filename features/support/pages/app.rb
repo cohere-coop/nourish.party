@@ -67,13 +67,13 @@ class App
   def sign_up_as(email:, password:)
     visit(:sign_up_page)
     current_page.submit(email: email, password: password)
-    self.current_user = User.find_by(email: email)
+    self.current_user = RegisteredUser.find_by(email: email)
   end
 
   def sign_in_as(user: nil, email: nil, password: nil)
     email ||= user.email
     password ||= user.password
-    self.current_user = user || User.find_by(email: email)
+    self.current_user = user || RegisteredUser.find_by(email: email)
     visit(:sign_in_page)
     current_page.submit(email: email, password: password)
   end

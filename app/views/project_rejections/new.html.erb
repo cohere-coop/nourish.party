@@ -1,0 +1,15 @@
+<h1>Approve <%= pending_project.title %>?</h1>
+<p><%= pending_project.summary %></p>
+<%= form_for(project_rejection,
+             url: pending_project_project_rejections_url(pending_project),
+             html: { data: { type: "project-status-change-form" } }) do |form| %>
+  <div class="fields">
+    <%= form.label :reason, t('rejecting_project.reason_field') %>
+    <%= form.text_area :reason %>
+  </div>
+
+  <div class="actions">
+    <%= link_to t('rejecting_project.cancel'), pending_projects_path %>
+    <%= form.submit(t('rejecting_project.complete')) %>
+  </div>
+<% end %>

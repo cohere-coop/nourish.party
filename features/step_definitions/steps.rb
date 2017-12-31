@@ -44,6 +44,10 @@ When("I submit a project titled {string} and summarized as {string}") do |title,
   app.submit_project(title: title, summary: summary)
 end
 
+When("I reject the project") do
+  app.visit(:pending_projects_page)
+  current_page.reject(project: app.project_under_test)
+end
 When("I approve the project") do
   app.visit(:pending_projects_page)
   current_page.approve(project: app.project_under_test)
@@ -53,6 +57,15 @@ When("I attempt to approve the project") do
   begin
     app.visit(:pending_projects_page)
     current_page.approve(project: app.project_under_test)
+  rescue NoMethodError => _
+    :this_is_purposeful
+  end
+end
+
+When("I attempt to reject the project") do
+  begin
+    app.visit(:pending_projects_page)
+    current_page.reject(project: app.project_under_test)
   rescue NoMethodError => _
     :this_is_purposeful
   end
@@ -118,6 +131,14 @@ Then("the project status changes log shows that I approved the project") do
   expect(current_page.project_status_changes).to be_displaying(*project_status_changes)
 end
 
+Then("the project status changes log shows that I rejected the project") do
+  project_status_changes = app.current_user.project_status_changes.where(project: app.project_under_test,
+                                                                         action: :rejected)
+  expect(project_status_changes).not_to be_empty
+  app.visit(:project_status_changes_page)
+  expect(current_page.project_status_changes).to be_displaying(*project_status_changes)
+end
+
 Then("the project is publicly available") do
   expect(app).to have_public_project(project: app.project_under_test)
 end
@@ -126,12 +147,12 @@ Then("the project is not publicly available") do
   expect(app).not_to have_public_project(project: app.project_under_test)
 end
 
-Then("the project is no longer available to be approved") do
+Then("the project is no longer pending") do
   app.visit(:pending_projects_page)
   expect(current_page.pending_projects.element_for(app.project_under_test)).not_to be_present
 end
 
-Then("the project is still pending approval") do
+Then("the project is still pending") do
   app.project_under_test.reload
   expect(app.project_under_test).to be_pending
 end

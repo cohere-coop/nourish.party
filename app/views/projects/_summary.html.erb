@@ -6,6 +6,9 @@
       <%= link_to(t('approving_project.begin'),
                     new_pending_project_project_approval_path(project),
                     { data: { action: "begin-approval" } }) %>
+      <%= link_to(t('rejecting_project.begin'),
+                    new_pending_project_project_rejection_path(project),
+                    { data: { action: "begin-rejection" } }) %>
     <% end %>
   </div>
 </div>

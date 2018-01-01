@@ -1,0 +1,11 @@
+<h1><%= t('my_projects.header') %></h1>
+
+<h2><%= t('my_projects.approved_projects_header') %></h2>
+<div data-type="approved-projects">
+  <%= render partial: 'projects/summary', collection: projects.approved, as: :project %>
+</div>
+
+<h2><%= t('my_projects.pending_projects_header') %></h2>
+<div data-type="pending-projects">
+  <%= render partial: 'projects/summary', collection: projects.pending, as: :project %>
+</div>

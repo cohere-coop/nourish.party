@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "dashboard#index"
 
   resources :projects, only: %i[new create]
+  resources :my_projects, only: %i[index]
+
   resources :pending_projects, only: [:index] do
     resources :project_approvals, only: %i[new create]
     resources :project_rejections, only: %i[new create]

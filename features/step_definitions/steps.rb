@@ -155,3 +155,8 @@ end
 Then("I am forbidden from taking that action") do
   expect(app).to be_forbidden
 end
+
+Then(/I can see the project in my projects as (approved|pending)/) do |status|
+  app.visit(:my_projects_page)
+  expect(app.current_page).to be_showing_project(app.project_under_test, status: status)
+end

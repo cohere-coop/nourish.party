@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :projects, only: %i[new create]
   resources :pending_projects, only: [:index] do
     resources :project_approvals, only: %i[new create]
+    resources :project_rejections, only: %i[new create]
   end
 
   resources :project_status_changes, only: [:index]

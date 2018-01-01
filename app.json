@@ -14,12 +14,13 @@
     "RAILS_LOG_TO_STDOUT": "enabled",
     "RAILS_SERVE_STATIC_FILES": "enabled",
     "FORCE_SEED": "true",
-    "SMTP_PORT": { "required": true },
-    "SMTP_ADDRESS": { "required": true },
-    "SMTP_USER_NAME": { "required": true },
-    "SMTP_PASSWORD": { "required": true },
-    "SMTP_DOMAIN": { "required": true },
+    "EMAIL_DEFAULT_FROM": { "required": true },
     "SMTP_AUTHENTICATION": { "required": true },
+    "SMTP_ADDRESS": { "required": true },
+    "SMTP_DOMAIN": { "required": true },
+    "SMTP_PASSWORD": { "required": true },
+    "SMTP_PORT": { "required": true },
+    "SMTP_USER_NAME": { "required": true },
     "SECRET_KEY_BASE": {
       "generator": "secret"
     },

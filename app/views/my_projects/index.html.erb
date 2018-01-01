@@ -9,3 +9,8 @@
 <div data-type="pending-projects">
   <%= render partial: 'projects/summary', collection: projects.pending, as: :project %>
 </div>
+
+<h2><%= t('my_projects.rejected_projects_header') %></h2>
+<div data-type="rejected-projects">
+  <%= render partial: 'projects/summary', collection: projects.rejected, as: :project %>
+</div>

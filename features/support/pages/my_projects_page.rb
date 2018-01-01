@@ -4,6 +4,7 @@ class MyProjectsPage < SitePrism::Page
 
   elements :_pending_projects, "*[data-type='pending-projects'] *[data-type=project]"
   elements :_approved_projects, "*[data-type='approved-projects'] *[data-type=project]"
+  elements :_rejected_projects, "*[data-type='rejected-projects'] *[data-type=project]"
 
   def approved_projects
     ElementCollection.new(_approved_projects)
@@ -11,6 +12,10 @@ class MyProjectsPage < SitePrism::Page
 
   def pending_projects
     ElementCollection.new(_pending_projects)
+  end
+
+  def rejected_projects
+    ElementCollection.new(_rejected_projects)
   end
 
   def showing_project?(project, status:)
@@ -25,6 +30,8 @@ class MyProjectsPage < SitePrism::Page
       approved_projects
     when :pending
       pending_projects
+    when :rejected
+      rejected_projects
     else
       raise "Invalid status #{status}"
     end

@@ -114,10 +114,6 @@ Then("I should not be signed in") do
   expect(app).not_to be_signed_in
 end
 
-Then("there is not a public project titled {string} and summarized as {string}") do |title, _summary|
-  expect(app).not_to have_public_project(title: title)
-end
-
 Then("I am a member of the project") do
   expect(app.project_under_test.members).to include(app.current_user)
 end

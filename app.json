@@ -15,7 +15,7 @@
     "RAILS_SERVE_STATIC_FILES": "enabled",
     "FORCE_SEED": "true",
     "SMTP_PORT": { "required": true },
-    "SMTP_SERVER": { "required": true },
+    "SMTP_ADDRESS": { "required": true },
     "SMTP_USER_NAME": { "required": true },
     "SMTP_PASSWORD": { "required": true },
     "SMTP_DOMAIN": { "required": true },

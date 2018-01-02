@@ -10,9 +10,9 @@
 // <div class="project-summary">
 //   <h3>Space Unicorns</h3>
 //   <p class="summary">Ride a space unicorn!</p>
-//   <div class="project-summary__actions">
-//     <a type="button" href="#">Approve</a>
-//     <a type="button" class="button--secondary" href="#">Reject</a>
+//   <div class="actions">
+//     <a type="button" class="--continue" href="#">Approve</a>
+//     <a type="button" class="--cancel" href="#">Reject</a>
 //   </div>
 // </div>
 //
@@ -28,10 +28,5 @@
 
   .project-summary > .title, .project-summary > .summary {
     grid-column: main;
-  }
-
-  .project-summary__actions {
-    grid-column: controls;
-    grid-row: 1 / span 2;
   }
 }

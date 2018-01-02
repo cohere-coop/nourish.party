@@ -16,9 +16,6 @@ $_button-background-color: $action-color;
 $_button-background-color-hover: shade($action-color, 20%);
 $_button-text-color: $white;
 
-$_secondary-button-background-color: $secondary-action-color;
-$_secondary-button-background-color-hover: shade($secondary-action-color, 20%);
-
 #{$all-buttons} {
   appearance: none;
   background-color: $_button-background-color;
@@ -58,6 +55,7 @@ $_secondary-button-background-color-hover: shade($secondary-action-color, 20%);
       background-color: $_button-background-color;
     }
   }
+
   $_cancel-button-background-color: $negative-action-color;
   $_cancel-button-background-color-hover: shade($negative-action-color, 20%);
   &.--cancel {
@@ -68,22 +66,11 @@ $_secondary-button-background-color-hover: shade($secondary-action-color, 20%);
       background-color: $_cancel-button-background-color-hover;
       color: contrast-switch($_cancel-button-background-color-hover);
     }
-  }
 
-}
-
-.button--secondary {
-  background-color: $_secondary-button-background-color;
-  color: contrast-switch($_secondary-button-background-color);
-
-  &:hover {
-    background-color: $_secondary-button-background-color-hover;
-    color: contrast-switch($_secondary-button-background-color-hover);
-  }
-
-  &:disabled {
-    &:hover {
-      background-color: $_secondary-button-background-color;
+    &:disabled {
+      &:hover {
+        background-color: $_cancel-button-background-color;
+      }
     }
   }
 }

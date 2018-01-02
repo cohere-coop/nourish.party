@@ -11,10 +11,8 @@
   </div>
 
   <div class="actions">
-    <div class="actions--primary">
-      <%= f.submit "Resend confirmation instructions" %>
-    </div>
-    <div class="actions--secondary">
+    <%= f.submit "Resend confirmation instructions", class: '--continue' %>
+    <div class="--cancel">
       <%= render "devise/shared/links" %>
     </div>
   </div>

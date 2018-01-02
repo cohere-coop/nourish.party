@@ -16,12 +16,8 @@
 //     <div>
 //   </fieldset>
 //   <div class="actions">
-//     <div class="actions--primary">
-//       <input type="submit" name="commit" value="Create Project" data-disable-with="Create Project">
-//     </div>
-//     <div class="actions--secondary">
-//       <a class="button" href="#"><button class="button--secondary">Cancel</button></a>
-//     </div>
+//     <input type="submit" class="--continue" name="commit" value="Create Project" data-disable-with="Create Project">
+//     <a class="--cancel" type="button" href="#">Cancel</a>
 //   </div>
 // </form>
 //
@@ -36,23 +32,7 @@ input[type=checkbox] + label {
   margin-bottom: 0;
 }
 
-.field form > .actions {
+.field, form > .actions {
   margin: 1.5em auto;
 }
 
-.actions {
-  display: grid;
-  width: 100%;
-  grid-template-columns: [secondary] 1fr [primary] 10rem;
-  grid-auto-rows: minmax(0, auto);
-}
-
-.actions--primary {
-  grid-column: primary;
-  grid-row: 1;
-}
-
-.actions--secondary {
-  grid-column: secondary;
-  grid-row: 1;
-}

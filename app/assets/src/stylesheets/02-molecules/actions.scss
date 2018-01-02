@@ -1,0 +1,23 @@
+// Actions
+//
+// Groups links/buttons together to imply things
+//
+// Markup:
+// <div class="actions">
+//   <a class="--cancel" type="button" href="#">Cancel</a>
+//   <a class="--continue" type="button" href="#">Continue</a>
+// </div>
+//
+// Style guide: molecules.actions
+
+.actions {
+  display: flex;
+
+  .--continue {
+    justify-self: end;
+  }
+
+  .--cancel {
+    justify-self: start;
+  }
+}

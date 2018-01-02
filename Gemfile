@@ -53,6 +53,8 @@ group :development, :test do
 
   # Dev tooling niceties
   gem "coveralls", require: false
+
+  gem "foreman"
 end
 
 group :assets do

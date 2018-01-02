@@ -10,7 +10,7 @@
 // <div class="project-summary">
 //   <h3>Space Unicorns</h3>
 //   <p class="summary">Ride a space unicorn!</p>
-//   <div class="actions">
+//   <div class="project-summary__actions">
 //     <a type="button" href="#">Approve</a>
 //     <a type="button" class="button--secondary" href="#">Reject</a>
 //   </div>
@@ -30,7 +30,7 @@
     grid-column: main;
   }
 
-  .project-summary > .actions {
+  .project-summary__actions {
     grid-column: controls;
     grid-row: 1 / span 2;
   }

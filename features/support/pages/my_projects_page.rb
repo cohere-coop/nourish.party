@@ -2,9 +2,9 @@
 class MyProjectsPage < SitePrism::Page
   set_url "/my_projects"
 
-  elements :_pending_projects, "*[data-type='pending-projects'] *[data-type=project]"
-  elements :_approved_projects, "*[data-type='approved-projects'] *[data-type=project]"
-  elements :_rejected_projects, "*[data-type='rejected-projects'] *[data-type=project]"
+  elements :_approved_projects, "*[data-status='approved'][data-type=project]"
+  elements :_pending_projects, "*[data-status='pending'][data-type=project]"
+  elements :_rejected_projects, "*[data-status='rejected'][data-type=project]"
 
   def approved_projects
     ElementCollection.new(_approved_projects)

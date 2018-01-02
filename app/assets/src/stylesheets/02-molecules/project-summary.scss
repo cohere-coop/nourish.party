@@ -5,7 +5,7 @@
 // Markup:
 // <!--
 // Rails partial: `projects/summary`
-// assumes `current_user` is set; requires local `project`
+// assumes `current_user` is set; requires locals `project` and `heading_level`
 // -->
 // <div class="project-summary">
 //   <h3>Space Unicorns</h3>

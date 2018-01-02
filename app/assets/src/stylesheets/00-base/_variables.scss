@@ -14,6 +14,7 @@ $base-z-index: 0;
 
 // Colors
 $dark-green: #004920;
+$sky-blue: #80d9ed;
 $teal: shade(#70F8BA, 30%);
 $sky-blue: #80d9ed;
 $purple: #57467B;
@@ -21,10 +22,14 @@ $dark-gray: #333;
 $light-gray: #ddd;
 $white: #fff;
 
+$contrast-switch-light-color: $white;
+$contrast-switch-dark-color: $teal;
+
 // Font Colors
 $base-font-color: $dark-gray;
 $action-color: $sky-blue;
 $negative-action-color: $light-gray;
+$secondary-action-color: $light-gray;
 
 // Border
 $base-border-color: $light-gray;

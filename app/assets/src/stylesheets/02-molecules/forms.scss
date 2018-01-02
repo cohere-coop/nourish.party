@@ -1,3 +1,32 @@
+// Forms
+//
+// Collects data from users
+//
+// Markup:
+// <form>
+//   <fieldset>
+//     <legend>Submit a Project</legend>
+//     <div class="field">
+//       <label for="project_title">Title</label>
+//       <input type="text">
+//     </div>
+//     <div class="field">
+//       <label for="project_summary">Summary</label>
+//       <input type="text" name="project[summary]" id="project_summary">
+//     <div>
+//   </fieldset>
+//   <div class="actions">
+//     <div class="actions--primary">
+//       <input type="submit" name="commit" value="Create Project" data-disable-with="Create Project">
+//     </div>
+//     <div class="actions--secondary">
+//       <a class="button" href="#"><button class="button--secondary">Cancel</button></a>
+//     </div>
+//   </div>
+// </form>
+//
+// Style guide: molecules.forms
+
 input[type=checkbox] {
   display: inline-block;
 }
@@ -7,6 +36,23 @@ input[type=checkbox] + label {
   margin-bottom: 0;
 }
 
-.field, form > .actions {
+.field form > .actions {
   margin: 1.5em auto;
+}
+
+.actions {
+  display: grid;
+  width: 100%;
+  grid-template-columns: [secondary] 1fr [primary] 10rem;
+  grid-auto-rows: minmax(0, auto);
+}
+
+.actions--primary {
+  grid-column: primary;
+  grid-row: 1;
+}
+
+.actions--secondary {
+  grid-column: secondary;
+  grid-row: 1;
 }

@@ -22,8 +22,13 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="actions--primary">
+      <%= f.submit "Log in" %>
+    </div>
+
+    <div class="actions--secondary">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

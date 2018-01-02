@@ -5,10 +5,10 @@
 // Markup:
 // <!--
 // Rails partial: `projects/summary`
-// assumes `current_user` is set; requires local `project`
+// assumes `current_user` is set; requires locals `project` and `heading_level`
 // -->
 // <div class="project-summary">
-//   <h2>Space Unicorns</h2>
+//   <h3>Space Unicorns</h3>
 //   <p class="summary">Ride a space unicorn!</p>
 //   <div class="actions">
 //     <a href="#">Approve</a>

@@ -1,8 +1,9 @@
-<div class="project-summary" data-id="<%= project.id %>" data-type="project">
-  <h2 class="title"><%= project.title %></h2>
+<div class="project-summary" data-id="<%= project.id %>" data-type="project"
+                             data-status="<%= project.status %>">
+  <h<%= heading_level %> class="title"><%= project.title %></h<<%= heading_level%>>
   <p class="summary"><%= project.summary %></p>
   <div class="actions">
-    <% if (current_user && current_user.instance_admin?) && project.pending? %>
+    <% if (current_user.instance_admin?) && project.pending? %>
       <%= link_to(t('approving_project.begin'),
                     new_pending_project_project_approval_path(project),
                     { data: { action: "begin-approval" } }) %>

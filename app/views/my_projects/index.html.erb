@@ -1,0 +1,19 @@
+<h1><%= t('my_projects.header') %></h1>
+
+<%- if projects.approved.present? %>
+  <h2><%= t('my_projects.approved_projects_header') %></h2>
+  <%= render partial: 'projects/summary', collection: projects.approved, as: :project,
+    locals: { heading_level: 3 } %>
+<% end %>
+
+<%- if projects.pending.present? %>
+  <h2><%= t('my_projects.pending_projects_header') %></h2>
+  <%= render partial: 'projects/summary', collection: projects.pending, as: :project,
+    locals: { heading_level: 3 } %>
+<% end %>
+
+<%- if projects.rejected.present? %>
+  <h2><%= t('my_projects.rejected_projects_header') %></h2>
+  <%= render partial: 'projects/summary', collection: projects.rejected, as: :project,
+    locals: { heading_level: 3 } %>
+<% end %>

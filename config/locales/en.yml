@@ -9,6 +9,11 @@ en:
     reason_field: "Why do you think this project is a good fit for Nourish.Party?"
     cancel: "Cancel"
     complete: "Approve"
+  my_projects:
+    header: "My Projects"
+    pending_projects_header: "Pending Projects"
+    approved_projects_header: "Approved Projects"
+    rejected_projects_header: "Rejected Projects"
 
   rejecting_project:
     begin: "Reject"

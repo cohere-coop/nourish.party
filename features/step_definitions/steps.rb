@@ -24,6 +24,10 @@ Given("there is already a user with the email {string} and the password {string}
   create(:registered_user, email: email, password: password)
 end
 
+Given("I had submitted a project") do
+  app.project_under_test = create(:project, status: :pending, members: [app.current_user])
+end
+
 When("I sign up with the email {string} and the password {string}") do |email, password|
   app.sign_up_as(email: email, password: password)
 end
@@ -40,8 +44,10 @@ When("I begin to submit a project") do
   app.visit(:new_project_page)
 end
 
-When("I submit a project titled {string} and summarized as {string}") do |title, summary|
-  app.submit_project(title: title, summary: summary)
+When("I submit a project") do
+  title = "Title #{SecureRandom.uuid}"
+  app.submit_project(title: title, summary: "Summary #{SecureRandom.uuid}")
+  app.project_under_test = Project.find_by(title: title)
 end
 
 When("I reject the project") do
@@ -71,9 +77,12 @@ When("I attempt to reject the project") do
   end
 end
 
-When("the project titled {string} is approved") do |title|
-  project = Project.find_by(title: title)
-  project.approve
+When("the project is approved") do
+  app.project_under_test.approve
+end
+
+When("the project is rejected") do
+  app.project_under_test.reject
 end
 
 Then("I am redirected to the sign in page") do
@@ -109,18 +118,8 @@ Then("I should not be signed in") do
   expect(app).not_to be_signed_in
 end
 
-Then("there is not a public project titled {string} and summarized as {string}") do |title, _summary|
-  expect(app).not_to have_public_project(title: title)
-end
-
-Then("I am a member of the project titled {string}") do |title|
-  project = Project.find_by(title: title)
-  expect(project.members).to include(app.current_user)
-end
-
-Then("there is a public project titled {string} and summarized as {string}") do |title, _summary|
-  expect(Project.find_by(title: title)).to be_approved
-  expect(app).to have_public_project(title: title)
+Then("I am a member of the project") do
+  expect(app.project_under_test.members).to include(app.current_user)
 end
 
 Then("the project status changes log shows that I approved the project") do
@@ -159,4 +158,9 @@ end
 
 Then("I am forbidden from taking that action") do
   expect(app).to be_forbidden
+end
+
+Then(/I can see the project in my projects as (approved|pending|rejected)/) do |status|
+  app.visit(:my_projects_page)
+  expect(app.current_page).to be_showing_project(app.project_under_test, status: status)
 end

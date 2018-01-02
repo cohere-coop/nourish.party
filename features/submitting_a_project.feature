@@ -1,17 +1,24 @@
 Feature: Submitting a project
   Scenario: Before the project is approved
     Given I am signed in
-    When I submit a project titled "Space Unicorns" and summarized as "Ride a space unicorn!"
-    Then there is not a public project titled "Space Unicorns" and summarized as "Ride a space unicorn!"
-    And I am a member of the project titled "Space Unicorns"
+    When I submit a project
+    Then I am a member of the project
+    And the project is not publicly available
+    And I can see the project in my projects as pending
 
   Scenario: After the project is approved
     Given I am signed in
-    And I submit a project titled "Space Unicorns" and summarized as "Ride a space unicorn!"
-    When the project titled "Space Unicorns" is approved
-    Then there is a public project titled "Space Unicorns" and summarized as "Ride a space unicorn!"
-    And I am a member of the project titled "Space Unicorns"
+    And I had submitted a project
+    When the project is approved
+    Then the project is publicly available
+    And I can see the project in my projects as approved
 
+  Scenario: After the project is rejected
+    Given I am signed in
+    And I had submitted a project
+    When the project is rejected
+    Then the project is not publicly available
+    And I can see the project in my projects as rejected
 
  Scenario: Guests may not submit projects
     Given I am not signed in

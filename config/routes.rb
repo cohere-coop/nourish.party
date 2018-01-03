@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :project_status_changes, only: [:index]
+
+  get "/auth/stripe_connect/callback", to: "stripe_connections#create"
 end

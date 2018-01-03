@@ -41,7 +41,7 @@
 
 <h2><%= t('stripe_connections.heading') %></h2>
 <%- if current_user.stripe_connections.empty? %>
-  <p class="alert"><%= t('stripe_connections.no_connections_warning') %></p>
+  <p class="notification --alert"><%= t('stripe_connections.no_connections_warning') %></p>
 <%- end %>
 <%- current_user.stripe_connections.each do |stripe_connection| %>
   <p>

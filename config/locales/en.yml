@@ -23,3 +23,7 @@ en:
 
   cta:
     submit_your_project_for_approval: "Submit your project"
+
+  stripe_connections:
+    connection_successful: "You successfully connected %{stripe_display_name}"
+    connection_failed: "We were unable to connect the stripe account. Try again?"

@@ -62,6 +62,9 @@ ActiveRecord::Schema.define(version: 20_180_103_000_213) do
   create_table "stripe_connections", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "owner_id"
     t.string "stripe_account_id"
+    t.string "business_name"
+    t.string "display_name"
+    t.string "statement_descriptor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_stripe_connections_on_owner_id"

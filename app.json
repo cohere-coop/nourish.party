@@ -7,6 +7,7 @@
     "postdeploy": "bundle exec rake db:migrate db:seed"
   },
   "env": {
+    "APP_ROOT_URL": "https://www.your-instance.example.com",
     "LANG": "en_US.UTF-8",
     "RACK_ENV": "production",
     "RAILS_ENV": "production",

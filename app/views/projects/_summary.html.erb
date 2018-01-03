@@ -6,10 +6,10 @@
     <% if (current_user.instance_admin?) && project.pending? %>
       <%= link_to(t('approving_project.begin'),
                     new_pending_project_project_approval_path(project),
-                    { type: 'button', data: { action: "begin-approval" } }) %>
+                    { class: 'action --continue', type: 'button', data: { action: "begin-approval" } }) %>
       <%= link_to(t('rejecting_project.begin'),
                     new_pending_project_project_rejection_path(project),
-                    { class: 'button--secondary', type: 'button',
+                    { class: 'action --cancel', type: 'button',
                       data: { action: "begin-rejection" } }) %>
     <% end %>
   </div>

@@ -35,9 +35,7 @@
   </div>
 
   <div class="actions">
-    <div class="actions--primary">
-      <%= f.submit "Update" %>
-    </div>
+    <%= f.submit "Update", class: 'action --continue' %>
   </div>
 <% end %>
 
@@ -54,11 +52,13 @@
                   stripe_connection_path(stripe_connection), method: :delete, type: 'button', class: "--cancel") %>
   </p>
 <%- end %>
-<%= link_to(t('stripe_connections.connect_button'), '/auth/stripe_connect', type: 'button') %>
+<div class="actions">
+  <%= link_to(t('stripe_connections.connect_button'), '/auth/stripe_connect', class: 'action --continue', type: 'button') %>
+</div>
 
 <h2>Cancel my account</h2>
 
-<p><%= button_to "Cancel my account", registration_path(resource_name),
-                 data: { confirm: "Are you sure?" }, method: :delete, class: '--cancel' %></p>
-
-<%= link_to "Back", :back %>
+<div class="actions">
+  <%= button_to "Cancel my account", registration_path(resource_name),
+    data: { confirm: "Are you sure?" }, method: :delete, class: 'action --cancel' %>
+</div>

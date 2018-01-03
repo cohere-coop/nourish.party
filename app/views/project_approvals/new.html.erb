@@ -9,11 +9,7 @@
   </div>
 
   <div class="actions">
-    <div class="actions--primary">
-      <%= form.submit(t('approving_project.complete')) %>
-    </div>
-    <div class="actions--secondary">
-      <%= link_to t('approving_project.cancel'), pending_projects_path, class: "button--secondary", type: 'button' %>
-    </div>
+    <%= form.submit(t('approving_project.complete'), class: 'action --primary') %>
+    <%= link_to t('approving_project.cancel'), pending_projects_path, class: "action --cancel", type: 'button' %>
   </div>
 <% end %>

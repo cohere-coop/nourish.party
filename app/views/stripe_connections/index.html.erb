@@ -1,6 +1,0 @@
-<%= link_to(t('stripe_connections.create'), '/auth/stripe_connect', type: 'button') %>
-<%- stripe_connections.each do |stripe_connection| %>
-  <li><%= stripe_connection.display_name %> (<%= stripe_connection.business_name %>)
-      - <%= stripe_connection.statement_descriptor %></li>
-
-<%- end %>

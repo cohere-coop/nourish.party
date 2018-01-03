@@ -1,6 +1,6 @@
 <div class="project-summary" data-id="<%= project.id %>" data-type="project"
                              data-status="<%= project.status %>">
-  <h<%= heading_level %> class="title"><%= project.title %></h<<%= heading_level%>>
+  <h<%= heading_level %> class="title"><%= project.title %></h<%= heading_level%>>
   <p class="summary"><%= project.summary %></p>
   <div class="actions">
     <% if (current_user.instance_admin?) && project.pending? %>

@@ -8,6 +8,7 @@ class RegisteredUser < ApplicationRecord
   has_many :project_memberships, foreign_key: :member_id
   has_many :projects, through: :project_memberships
   has_many :project_status_changes, foreign_key: :moderator_id
+  has_many :stripe_connections, foreign_key: :owner_id
 
   def registered?
     persisted?

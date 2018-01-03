@@ -13,10 +13,20 @@ class StripeConnectionsController < ApplicationController
     else
       flash[:notice] = t("stripe_connections.connection_failed")
     end
-    redirect_to action: :index
+    redirect_to edit_registered_user_registration_url
   end
 
-  def index; end
+  def destroy
+    stripe_connection = stripe_connections.find(params[:id])
+    if stripe_connection.destroy
+      flash[:notice] = t("stripe_connections.connection_destroyed",
+                         stripe_display_name: stripe_connection.display_name)
+    else
+      flash[:alert] = t("stripe_connections.connection_destroy_failed",
+                        stripe_display_name: stripe_connection.display_name)
+    end
+    redirect_to edit_registered_user_registration_url
+  end
 
   private def find_or_initialize_stripe_connection
     stripe_connections.find_or_initialize_by(stripe_account_id: omniauth_data["uid"])

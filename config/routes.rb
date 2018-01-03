@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :project_status_changes, only: [:index]
 
-  resources :stripe_connections, only: [:index]
+  resources :stripe_connections, only: [:destroy]
 
   get "/auth/stripe_connect/callback", to: "stripe_connections#create"
 end

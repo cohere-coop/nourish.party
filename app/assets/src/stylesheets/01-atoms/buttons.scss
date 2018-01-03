@@ -5,7 +5,9 @@
 // :hover   - Highlights when hovering.
 //
 // Markup:
+// <a type="button">A Link Button</a>
 // <button>Button</button>
+// <button class="--cancel">Cancel Button</button>
 //
 // Style guide: components.button
 
@@ -53,4 +55,16 @@ $_button-text-color: $white;
       background-color: $_button-background-color;
     }
   }
+  $_cancel-button-background-color: $negative-action-color;
+  $_cancel-button-background-color-hover: shade($negative-action-color, 20%);
+  &.--cancel {
+    background-color: $_cancel-button-background-color;
+    color: contrast-switch($_cancel-button-background-color);
+
+    &:hover {
+      background-color: $_cancel-button-background-color-hover;
+      color: contrast-switch($_cancel-button-background-color-hover);
+    }
+  }
+
 }

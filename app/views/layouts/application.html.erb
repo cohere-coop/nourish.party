@@ -25,6 +25,7 @@
             <%= link_to t('shared.links.pending_projects'), pending_projects_path %>
             <%= link_to t('shared.links.project_status_changes'), project_status_changes_path %>
           <% end %>
+          <%= link_to t('shared.links.settings'), edit_registered_user_registration_path %>
           <%= link_to t('devise.shared.links.sign_out'), destroy_registered_user_session_path, method: :delete %>
         <% else %>
           <%= link_to t('devise.shared.links.sign_in'), new_registered_user_session_path %>
@@ -34,8 +35,13 @@
     </header>
 
     <main class="<%= yield(:main_class).present? ? yield(:main_class) : '--primary-layout' %>">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <%- if flash.key?(:notice) %>
+        <p class="notification --notice"><%= notice %></p>
+      <% end %>
+
+      <%- if flash.key?(:alert) %>
+        <p class="notification --alert"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </main>
   </body>

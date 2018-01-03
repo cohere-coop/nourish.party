@@ -23,3 +23,14 @@ en:
 
   cta:
     submit_your_project_for_approval: "Submit your project"
+
+  stripe_connections:
+    heading: "Process Payments via Stripe"
+    no_connections_warning: "Configuring a payment processor will let your project accept contributions. Until then, for legal reasons, we can't take any money on your behalf."
+    connect_button: "Connect a Stripe Account"
+    disconnect_button: "Disconnect"
+    account_owner_statement_descriptor_explanation: 'Appears on credit card statements as "%{statement_descriptor}"'
+    connection_successful: "You successfully connected %{stripe_display_name}"
+    connection_failed: "We were unable to connect the stripe account. Try again?"
+    connection_destroyed: "The connection between nourish.party and stripe account named %{stripe_display_name} was removed."
+    connection_destroy_failed: "The connection between nourish.party and the stripe account named %{stripe_display_name} was unable to be removed. Try again?"

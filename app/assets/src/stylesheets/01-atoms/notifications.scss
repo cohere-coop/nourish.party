@@ -1,0 +1,31 @@
+// Notification
+//
+// Some of text that says something the user should know about
+//
+// Markup:
+// <p class="notification --notice">This is what it is. You may or may not really care.</p>
+// <p class="notification --alert">This is important, you should really pay attention!</p>
+//
+// Style guide: components.notifications
+
+
+.notification {
+  padding: $small-spacing / 2;
+  $_notice-background-color: $action-color;
+  $_notice-background-color-hover: shade($action-color, 20%);
+
+  border: 0;
+  border-radius: $base-border-radius;
+
+  &.--notice {
+    background-color: $_notice-background-color;
+    color: contrast-switch($_notice-background-color);
+  }
+
+  $_alert-background-color: $negative-action-color;
+  $_alert-background-color-hover: shade($negative-action-color, 20%);
+  &.--alert {
+    background-color: $_alert-background-color;
+    color: contrast-switch($_alert-background-color);
+  }
+}

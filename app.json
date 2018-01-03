@@ -7,6 +7,7 @@
     "postdeploy": "bundle exec rake db:migrate db:seed"
   },
   "env": {
+    "APP_ROOT_URL": "https://www.your-instance.example.com",
     "LANG": "en_US.UTF-8",
     "RACK_ENV": "production",
     "RAILS_ENV": "production",
@@ -15,6 +16,15 @@
     "FORCE_SEED": "true",
     "SECRET_KEY_BASE": {
       "generator": "secret"
+    },
+    "STRIPE_OAUTH_CLIENT_ID": {
+      "description": "Client ID for Stripe OAuth. Get from https://dashboard.stripe.com/account/applications/settings"
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "description": "Publishable key for generating stripe transactions. Get form https://dashboard.stripe.com/account/apikeys"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Secret key used to generate stripe transactions. Get form https://dashboard.stripe.com/account/apikeys"
     }
   },
   "formation": {

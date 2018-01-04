@@ -51,20 +51,6 @@ When("the project is rejected") do
   app.project_under_test.reject
 end
 
-Then("there is not a public project titled {string} and summarized as {string}") do |title, _summary|
-  expect(app).not_to have_public_project(title: title)
-end
-
-Then("I am a member of the project titled {string}") do |title|
-  project = Project.find_by(title: title)
-  expect(project.members).to include(app.current_user)
-end
-
-Then("there is a public project titled {string} and summarized as {string}") do |title, _summary|
-  expect(Project.find_by(title: title)).to be_approved
-  expect(app).to have_public_project(title: title)
-end
-
 Then("I am a member of the project") do
   expect(app.project_under_test.members).to include(app.current_user)
 end

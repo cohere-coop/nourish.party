@@ -84,6 +84,10 @@ class App
     page.click_on(I18n.t("devise.shared.links.sign_out"))
   end
 
+  def showing_notice?(translation, interpolations = {})
+    page.find('.notification.\--notice').has_text?(I18n.t(translation, interpolations))
+  end
+
   def showing_errors?
     page.has_css?(".error") || page.has_css?("#error_explanation")
   end

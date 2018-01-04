@@ -1,5 +1,5 @@
 Given("a project is pending") do
-  app.project_under_test = create(:project, status: :pending)
+  app.project_under_test = create(:project, status: :pending, members: [create(:user)])
 end
 
 Given("I had submitted a project") do
@@ -98,4 +98,11 @@ Then(/I see a notice that I (approved|rejected) the project$/) do |status|
   i18n_path = status == "approved" ? "approving_project" : "rejecting_project"
   expect(app).to be_showing_notice("#{i18n_path}.success_notification",
                                    project_title: app.project_under_test.title)
+end
+
+Then(/the project creator is sent a project (approved|rejected) email with my reason/) do |action|
+  app.project_under_test.members.each do |member|
+    expect(app).to have_sent_email(to: member,
+                                   subject: I18n.t("project_status_change_mailer.project_#{action}"))
+  end
 end

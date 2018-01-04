@@ -3,6 +3,7 @@ Feature: Rejecting a Project
   As an instance admin
   I want to be able to reject projects
 
+@wip
 Scenario: Admin rejects a project
   Given a project is pending
   And I sign in as an instance admin
@@ -11,6 +12,7 @@ Scenario: Admin rejects a project
   And the project status changes log shows that I rejected the project
   And the project is not publicly available
   And the project is no longer pending
+  And the project creator is sent a project rejected email with my reason
 
 Scenario: Non admin attempts to reject a project
   Given a project is pending

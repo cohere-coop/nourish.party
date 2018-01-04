@@ -11,8 +11,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
+    <%= f.submit "Resend unlock instructions", class: 'action --continue' %>
+
+    <span class="action --cancel">
+      <%= render "devise/shared/links" %>
+    </span>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

@@ -22,8 +22,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.submit "Change my password", class: 'action --continue' %>
+    <span class="action --cancel">
+      <%= render "devise/shared/links" %>
+    </span>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

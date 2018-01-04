@@ -1,4 +1,4 @@
-<h1>Approve <%= pending_project.title %>?</h1>
+<h1>Reject <%= pending_project.title %>?</h1>
 <p><%= pending_project.summary %></p>
 <%= form_for(project_rejection,
              url: pending_project_project_rejections_url(pending_project),
@@ -9,7 +9,7 @@
   </div>
 
   <div class="actions">
-    <%= link_to t('rejecting_project.cancel'), pending_projects_path %>
-    <%= form.submit(t('rejecting_project.complete')) %>
+    <%= form.submit(t('rejecting_project.complete'), class: 'action --continue') %>
+    <%= link_to t('rejecting_project.cancel'), pending_projects_path, class: "action --cancel", type: 'button' %>
   </div>
 <% end %>

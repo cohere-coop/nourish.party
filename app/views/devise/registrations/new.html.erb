@@ -24,8 +24,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "--continue" %>
+    <span class="actions --cancel">
+      <%= render "devise/shared/links" %>
+    </span>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

@@ -10,7 +10,12 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <%= f.submit "Send me reset password instructions" %>
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions", class: 'action --continue' %>
+
+    <span class="action --cancel">
+      <%= render "devise/shared/links" %>
+    </span>
+  </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

@@ -55,6 +55,7 @@ $_button-text-color: $white;
       background-color: $_button-background-color;
     }
   }
+
   $_cancel-button-background-color: $negative-action-color;
   $_cancel-button-background-color-hover: shade($negative-action-color, 20%);
   &.--cancel {
@@ -65,6 +66,11 @@ $_button-text-color: $white;
       background-color: $_cancel-button-background-color-hover;
       color: contrast-switch($_cancel-button-background-color-hover);
     }
-  }
 
+    &:disabled {
+      &:hover {
+        background-color: $_cancel-button-background-color;
+      }
+    }
+  }
 }

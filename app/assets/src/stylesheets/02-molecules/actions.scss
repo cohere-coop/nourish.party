@@ -1,0 +1,31 @@
+// Actions
+//
+// Groups links/buttons together so that the forward moving things are on the right and cancelling things are
+// on the left
+//
+// Markup:
+// <div class="actions">
+//   <a class="action --continue" type="button" href="#">Continue</a>
+//   <span class="action --cancel">
+//     <a class="--cancel" type="button" href="#">Cancel</a>
+//     <a href="#">Read up!</a>
+//   </span>
+// </div>
+//
+// Style guide: molecules.actions
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+
+  .action {
+    &.--continue {
+      order: 0;
+    }
+
+    &.--cancel {
+      order: 1;
+    }
+  }
+}

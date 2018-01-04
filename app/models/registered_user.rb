@@ -9,6 +9,7 @@ class RegisteredUser < ApplicationRecord
   has_many :projects, through: :project_memberships
   has_many :project_status_changes, foreign_key: :moderator_id
   has_many :stripe_connections, foreign_key: :owner_id
+  has_many :oauth_applications, class_name: "Doorkeeper::Application", as: :owner
 
   def registered?
     persisted?

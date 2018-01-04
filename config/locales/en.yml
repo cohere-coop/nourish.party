@@ -4,11 +4,17 @@ en:
       browse_projects: "Home"
       pending_projects: "Pending Projects"
       project_status_changes: "Moderator Activity Log"
+
+  cta:
+    submit_your_project_for_approval: "Submit your project"
+
   approving_project:
     begin: "Approve"
     reason_field: "Why do you think this project is a good fit for Nourish.Party?"
     cancel: "Cancel"
     complete: "Approve"
+    success_notification: "You have approved the project %{project_title}"
+
   my_projects:
     header: "My Projects"
     pending_projects_header: "Pending Projects"
@@ -20,9 +26,7 @@ en:
     reason_field: "Why do you think this project is not a good fit for Nourish.Party?"
     cancel: "Cancel"
     complete: "Reject"
-
-  cta:
-    submit_your_project_for_approval: "Submit your project"
+    success_notification: "You have rejected the project %{project_title}"
 
   stripe_connections:
     heading: "Process Payments via Stripe"

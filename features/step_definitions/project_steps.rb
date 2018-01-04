@@ -93,3 +93,9 @@ Then(/I can see the project in my projects as (approved|pending|rejected)/) do |
   app.visit(:my_projects_page)
   expect(app.current_page).to be_showing_project(app.project_under_test, status: status)
 end
+
+Then(/I see a notice that I (approved|rejected) the project$/) do |status|
+  i18n_path = status == "approved" ? "approving_project" : "rejecting_project"
+  expect(app).to be_showing_notice("#{i18n_path}.success_notification",
+                                   project_title: app.project_under_test.title)
+end

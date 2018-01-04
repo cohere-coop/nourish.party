@@ -12,6 +12,7 @@ class ProjectApprovalsController < ModerationController
     end
 
     if project_approval.persisted?
+      flash[:notice] = t("approving_project.success_notification", project_title: pending_project.title)
       redirect_to pending_projects_path
     else
       render :new

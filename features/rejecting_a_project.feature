@@ -7,7 +7,8 @@ Scenario: Admin rejects a project
   Given a project is pending
   And I sign in as an instance admin
   When I reject the project
-  Then the project status changes log shows that I rejected the project
+  Then I see a notice that I rejected the project
+  And the project status changes log shows that I rejected the project
   And the project is not publicly available
   And the project is no longer pending
 

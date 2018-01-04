@@ -6,6 +6,8 @@
 
 require "cucumber/rails"
 require "capybara-screenshot/cucumber"
+require "faker"
+require Pathname.new(Rails.root) / "spec/support/test_credit_card"
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any

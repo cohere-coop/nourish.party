@@ -1,5 +1,24 @@
 <% if project.stripe_connection.present? %>
   <%= notification(t('.ready_to_take_payments')) %>
+  <%= form_for [project, contribution] do |f| %>
+
+    <%= # this will need to be pushed into some kind of polymorphic decorator
+        # when we start taking non-Stripe payments
+    %>
+    <%= f.fields_for :payment_processor do |payment_fields| %>
+      <%= payment_fields.text_field :token %>
+    <% end %>
+
+    <div class='field'>
+      <%= f.label :amount_in_dollars %>
+      <%= f.text_field :amount_in_dollars %>
+    </div>
+
+    <div class='actions'>
+      <%= link_to "Cancel", root_path, class: 'action --cancel' %>
+      <%= f.submit "Contribute", class: 'action --continue' %>
+    </div>
+  <% end %>
 <% else %>
   <%= notification(t('.not_connected_to_payment_processor'), type: 'alert') %>
   <% if project.members.include?(current_user) %>

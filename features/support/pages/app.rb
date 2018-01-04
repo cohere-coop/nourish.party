@@ -61,6 +61,11 @@ class App
     current_page.load(params)
   end
 
+  def provide_support(project:, amount: 10.dollars, credit_card: FactoryBot.build(:test_credit_card))
+    visit(:new_project_contribution_page, project_id: project.id)
+    current_page.make_one_off_contribution(credit_card: credit_card, amount: amount)
+  end
+
   def approve_project(project:)
     visit(:admin_pending_projects_page)
     current_page.approve(project: project)

@@ -1,3 +1,6 @@
+Given("I have never provided support before") do
+end
+
 Then("I should not see any errors") do
   expect(app).not_to be_showing_errors
 end

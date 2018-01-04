@@ -1,14 +1,4 @@
+<h1>Pending Projects</h1>
 
-<table class="pending-projects">
-<%- pending_projects.each do |pending_project|%>
-  <tr data-type="pending-project" data-id="<%= pending_project.id %>">
-    <td><%=pending_project.title%></td>
-    <td>
-      <%= link_to(t('approving_project.begin'),
-                  new_pending_project_project_approval_path(pending_project),
-                  { data: { action: "begin-approval" } }) %>
-    </td>
-  </tr>
-<% end %>
-</table>
-
+<%= render partial: 'projects/summary', collection: pending_projects, as: :project,
+                                        locals: { heading_level: 2 } %>

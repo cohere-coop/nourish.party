@@ -6,14 +6,24 @@ class Project < ApplicationRecord
   has_many :members, through: :project_memberships
   scope :approved, -> { where(status: "approved") }
   scope :pending, -> { where(status: "pending") }
+  scope :rejected, -> { where(status: "rejected") }
 
   def approve
     return true if approved?
     update(status: "approved")
   end
 
+  def reject
+    return true if rejected?
+    update(status: "rejected")
+  end
+
   def approved?
     status == "approved"
+  end
+
+  def rejected?
+    status == "rejected"
   end
 
   def pending?

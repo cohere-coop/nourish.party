@@ -9,7 +9,7 @@ Scenario: Admin approves a project
   When I approve the project
   Then the project status changes log shows that I approved the project
   And the project is publicly available
-  And the project is no longer available to be approved
+  And the project is no longer pending
 
 Scenario: Non admin attempts to approve a project
   Given a project is pending
@@ -17,4 +17,4 @@ Scenario: Non admin attempts to approve a project
   When I attempt to approve the project
   Then I am forbidden from taking that action
   And the project is not publicly available
-  And the project is still pending approval
+  And the project is still pending

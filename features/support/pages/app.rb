@@ -5,6 +5,7 @@ require_relative "project_status_change_section"
 require_relative "pending_project_section"
 
 require_relative "home_page"
+require_relative "my_projects_page"
 require_relative "new_project_page"
 require_relative "pending_projects_page"
 require_relative "project_status_changes_page"
@@ -21,11 +22,12 @@ class App
 
   PAGES = {
     home_page: HomePage,
+    my_projects_page: MyProjectsPage,
     new_project_page: NewProjectPage,
-    sign_in_page: SignInPage,
-    sign_up_page: SignUpPage,
     project_status_changes_page: ProjectStatusChangesPage,
-    pending_projects_page: PendingProjectsPage
+    pending_projects_page: PendingProjectsPage,
+    sign_in_page: SignInPage,
+    sign_up_page: SignUpPage
   }.freeze
 
   def on?(page)
@@ -67,13 +69,13 @@ class App
   def sign_up_as(email:, password:)
     visit(:sign_up_page)
     current_page.submit(email: email, password: password)
-    self.current_user = User.find_by(email: email)
+    self.current_user = RegisteredUser.find_by(email: email)
   end
 
   def sign_in_as(user: nil, email: nil, password: nil)
     email ||= user.email
     password ||= user.password
-    self.current_user = user || User.find_by(email: email)
+    self.current_user = user || RegisteredUser.find_by(email: email)
     visit(:sign_in_page)
     current_page.submit(email: email, password: password)
   end

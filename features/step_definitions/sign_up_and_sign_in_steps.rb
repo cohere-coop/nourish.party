@@ -13,11 +13,11 @@ Given(/^I sign in as (a|an) (user|instance admin|project creator|supporter)$/) d
 end
 
 Given("there is already a user with the email {string}") do |email|
-  User.create(email: email, password: "password")
+  create(:user, email: email)
 end
 
 Given("there is already a user with the email {string} and the password {string}") do |email, password|
-  User.create(email: email, password: password)
+  create(:user, email: email, password: password)
 end
 
 When("I sign up with the email {string} and the password {string}") do |email, password|
@@ -55,4 +55,8 @@ end
 
 Then("I should not be signed in") do
   expect(app).not_to be_signed_in
+end
+
+Then("I am redirected to the sign in page") do
+  expect(app).to be_on(:sign_in_page)
 end

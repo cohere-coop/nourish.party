@@ -1,0 +1,4 @@
+web: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
+assets: bin/webpack-dev-server
+app_docs: bin/yard server
+gem_docs: bin/yard server -G Gemfile -p 8809

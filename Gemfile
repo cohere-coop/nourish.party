@@ -29,6 +29,8 @@ gem "jbuilder", "~> 2.5"
 # Authentication and Authorization
 gem "devise", "~> 4.3"
 gem "devise-i18n", "~> 1.5"
+gem "omniauth", "~> 1.8"
+gem "omniauth-stripe-connect", "~> 2.10"
 
 # Route/Controller/View DRYers
 gem "decent_exposure", "~> 3.0"
@@ -53,6 +55,8 @@ group :development, :test do
 
   # Dev tooling niceties
   gem "coveralls", require: false
+
+  gem "foreman"
 end
 
 group :assets do

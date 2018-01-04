@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_171_227_194_024) do
+ActiveRecord::Schema.define(version: 20_180_103_000_213) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pgcrypto"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20_171_227_194_024) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "registered_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -55,7 +55,18 @@ ActiveRecord::Schema.define(version: 20_171_227_194_024) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "instance_admin", default: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_registered_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_registered_users_on_reset_password_token", unique: true
+  end
+
+  create_table "stripe_connections", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "owner_id"
+    t.string "stripe_account_id"
+    t.string "business_name"
+    t.string "display_name"
+    t.string "statement_descriptor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_stripe_connections_on_owner_id"
   end
 end

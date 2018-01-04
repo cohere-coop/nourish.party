@@ -39,8 +39,24 @@
   </div>
 <% end %>
 
+<h2><%= t('stripe_connections.heading') %></h2>
+<%- if current_user.stripe_connections.empty? %>
+  <p class="notification --alert"><%= t('stripe_connections.no_connections_warning') %></p>
+<%- end %>
+<%- current_user.stripe_connections.each do |stripe_connection| %>
+  <p>
+  <%= stripe_connection.display_name %> (<%= stripe_connection.business_name %>).
+  <%= t('stripe_connections.account_owner_statement_descriptor_explanation',
+        statement_descriptor: stripe_connection.statement_descriptor) %>
+      <%= link_to(t('stripe_connections.disconnect_button'),
+                  stripe_connection_path(stripe_connection), method: :delete, type: 'button', class: "--cancel") %>
+  </p>
+<%- end %>
+<%= link_to(t('stripe_connections.connect_button'), '/auth/stripe_connect', type: 'button') %>
+
 <h2>Cancel my account</h2>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "Cancel my account", registration_path(resource_name),
+                 data: { confirm: "Are you sure?" }, method: :delete, class: '--cancel' %></p>
 
 <%= link_to "Back", :back %>

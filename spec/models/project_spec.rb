@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Project, type: :model do
-  subject(:project) { create(:project, members: [create(:user)]) }
+  subject(:project) { create(:project, members: [create(:registered_user)]) }
 
   it "starts pending" do
     expect(project).to be_pending

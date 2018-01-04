@@ -1,7 +1,7 @@
 # Encapsulates user interactions with the new project page
 class PendingProjectsPage < SitePrism::Page
   set_url "/pending_projects"
-  sections :_pending_projects, PendingProjectSection, "*[data-type='pending-project']"
+  sections :_pending_projects, PendingProjectSection, "*[data-type='project']"
   section :project_status_change_form, ProjectStatusChangeFormSection,
           "*[data-type='project-status-change-form']"
 
@@ -12,6 +12,12 @@ class PendingProjectsPage < SitePrism::Page
   def approve(project:, reason: "I just like it, OK?")
     project_to_approve = pending_projects.element_for(project)
     project_to_approve.begin_approval_button.click
+    project_status_change_form.submit(reason: reason)
+  end
+
+  def reject(project:, reason: "I don't like it")
+    project_to_reject = pending_projects.element_for(project)
+    project_to_reject.begin_rejection_button.click
     project_status_change_form.submit(reason: reason)
   end
 

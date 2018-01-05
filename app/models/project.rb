@@ -8,25 +8,31 @@ class Project < ApplicationRecord
   scope :pending, -> { where(status: "pending") }
   scope :rejected, -> { where(status: "rejected") }
 
-  def approve
-    return true if approved?
-    update(status: "approved")
-  end
-
-  def reject
-    return true if rejected?
-    update(status: "rejected")
-  end
-
   def approved?
     status == "approved"
+  end
+
+  def pending?
+    status == "pending"
   end
 
   def rejected?
     status == "rejected"
   end
 
-  def pending?
-    status == "pending"
+  def apply_status_change(status_change)
+    return true if status == status_change.action
+    status_change.project = self
+    return false unless transaction { status_change.save && update(status: status_change.action) }
+    notify_members_of_status_change(status_change)
+    true
+  end
+
+  private def notify_members_of_status_change(status_change)
+    members.each do |member|
+      ProjectStatusChangeMailer
+        .status_change_notification(member: member, status_change: status_change)
+        .deliver
+    end
   end
 end

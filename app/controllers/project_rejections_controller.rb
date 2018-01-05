@@ -1,25 +1,21 @@
 # Allows a project to be rejected
 class ProjectRejectionsController < ModerationController
-  expose(:project_rejection, scope: -> { pending_project.project_status_changes },
-                             model: :project_status_change)
-  expose(:pending_project, scope: -> { Project.pending }, model: :project)
+  expose(:rejection, scope: -> { project.project_status_changes },
+                     model: :project_status_change)
+  expose(:project, scope: -> { Project.pending }, model: :project)
 
   def new; end
 
   def create
-    ProjectStatusChange.transaction do
-      pending_project.reject if project_rejection.save
-    end
-
-    if project_rejection.persisted?
-      flash[:notice] = t("rejecting_project.success_notification", project_title: pending_project.title)
+    if project.apply_status_change(rejection)
+      flash[:notice] = t("rejecting_project.success_notification", project_title: project.title)
       redirect_to pending_projects_path
     else
       render :new
     end
   end
 
-  private def project_rejection_params
+  private def rejection_params
     params.require(:project_status_change)
       .permit(:reason).merge(moderator: current_user, action: :rejected)
   end

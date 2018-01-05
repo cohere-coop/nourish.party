@@ -1,5 +1,5 @@
 Given("a project is pending") do
-  app.project_under_test = create(:project, status: :pending)
+  app.project_under_test = create(:project, status: :pending, members: [create(:user)])
 end
 
 Given("I had submitted a project") do
@@ -43,12 +43,8 @@ When("I attempt to reject the project") do
   end
 end
 
-When("the project is approved") do
-  app.project_under_test.approve
-end
-
-When("the project is rejected") do
-  app.project_under_test.reject
+When(/the project receives (approval|rejection)/) do |status_change_factory|
+  app.project_under_test.apply_status_change(build(status_change_factory.to_sym))
 end
 
 Then("I am a member of the project") do
@@ -98,4 +94,12 @@ Then(/I see a notice that I (approved|rejected) the project$/) do |status|
   i18n_path = status == "approved" ? "approving_project" : "rejecting_project"
   expect(app).to be_showing_notice("#{i18n_path}.success_notification",
                                    project_title: app.project_under_test.title)
+end
+
+Then(/the project creator is sent a project (approved|rejected) email with my reason/) do |action|
+  app.project_under_test.members.each do |member|
+    expect(app).to have_sent_email(to_user: member,
+                                   subject: I18n.t("project_status_change_mailer.#{action}.subject"),
+                                   body: /#{app.project_under_test.project_status_changes.latest.reason}/)
+  end
 end

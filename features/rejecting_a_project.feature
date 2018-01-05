@@ -11,6 +11,7 @@ Scenario: Admin rejects a project
   And the project status changes log shows that I rejected the project
   And the project is not publicly available
   And the project is no longer pending
+  And the project creator is sent a project rejected email with my reason
 
 Scenario: Non admin attempts to reject a project
   Given a project is pending

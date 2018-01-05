@@ -1,7 +1,7 @@
-<h1>Approve <%= pending_project.title %>?</h1>
-<p><%= pending_project.summary %></p>
-<%= form_for(project_approval,
-             url: pending_project_project_approvals_url(pending_project),
+<h1>Approve <%= project.title %>?</h1>
+<p><%= project.summary %></p>
+<%= form_for(approval,
+             url: project_approvals_url(project: project),
              html: { data: { type: "project-status-change-form" } }) do |form| %>
   <div class="fields">
     <%= form.label :reason, t('approving_project.reason_field') %>

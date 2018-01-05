@@ -45,7 +45,7 @@ en:
     approved:
       subject: "Your project has been approved to receive support on Nourish.Party"
       preamble: "We're happy to announce that your project has been approved to receive support on Nourish.Party. Staff passed along the following reason:"
-      conclusion: "We're looking forward to celebrating your project's success and helping you achieve personal sustainability as a creative!"
+      conclusion: "We're looking forward to celebrating your project's success and helping you achieve your funding goals!"
     rejected:
       subject: "We need more information before your project may receive support on Nourish.Party"
       preamble: "Unfortunately, we're unable to approve your project to receive support on Nourish.Party. Staff passed along the following reason:"

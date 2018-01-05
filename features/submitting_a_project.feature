@@ -9,14 +9,14 @@ Feature: Submitting a project
   Scenario: After the project is approved
     Given I am signed in
     And I had submitted a project
-    When the project is approved
+    When the project receives approval
     Then the project is publicly available
     And I can see the project in my projects as approved
 
   Scenario: After the project is rejected
     Given I am signed in
     And I had submitted a project
-    When the project is rejected
+    When the project receives rejection
     Then the project is not publicly available
     And I can see the project in my projects as rejected
 

@@ -43,14 +43,8 @@ When("I attempt to reject the project") do
   end
 end
 
-When(/the project is (approved|rejected)/) do |action|
-  factory = case action
-            when "approved"
-              :approval
-            when "rejected"
-              :rejection
-            end
-  app.project_under_test.apply_status_change(build(factory))
+When(/the project receives (approval|rejection)/) do |status_change_factory|
+  app.project_under_test.apply_status_change(build(status_change_factory.to_sym))
 end
 
 Then("I am a member of the project") do

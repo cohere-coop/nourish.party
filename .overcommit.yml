@@ -12,7 +12,7 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
-    command: ['bundle', 'exec', 'rubocop']
+    command: 'bin/rubocop'
   TrailingWhitespace:
     enabled: true
   EsLint:
@@ -22,3 +22,4 @@ PreCommit:
 PrePush:
   RSpec:
     enabled: true
+    command: 'bin/rspec'

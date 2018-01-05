@@ -9,9 +9,9 @@ Doorkeeper.configure do
 
   # If you want to restrict access to the web interface for adding oauth authorized applications,
   # you need to declare the block below.
-  #admin_authenticator do |routes|
+  # admin_authenticator do |routes|
   #  redirect_to(new_registered_user_session_url) unless current_resource_owner.instance_admin?
-  #end
+  # end
 
   # Authorization Code expiration time (default 10 minutes).
   # authorization_code_expires_in 10.minutes

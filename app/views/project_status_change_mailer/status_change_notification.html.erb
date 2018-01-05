@@ -1,10 +1,10 @@
 <p><%= t('shared.mail.greeting') %></p>
 
-<p><%= t('preamble') %></p>
+<p><%= t('preamble', status_change: status_change) %></p>
 
 <p><%= status_change.reason %></p>
 
-<p><%= t('project_status_change_mailer.approved.conclusion') %></p>
+<p><%= t('conclusion', status_change: status_change) %></p>
 
 <p><%= t('shared.mail.signature') %></p>
 

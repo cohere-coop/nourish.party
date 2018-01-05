@@ -2,14 +2,16 @@
 # @see http://localhost:3000/rails/mailers/project_status_change_mailer/
 class ProjectStatusChangeMailerPreview < ActionMailer::Preview
   def approved
-    ProjectStatusChangeMailer.approved(member: RegisteredUser.first || create(:user),
-                                       approval: ProjectStatusChange.approved.first ||
-                                         create(:project_status_change, :approved))
+    ProjectStatusChangeMailer.status_change_notification(
+      member: RegisteredUser.first || create(:user),
+      status_change: ProjectStatusChange.approved.first || create(:project_status_change, :approved)
+    )
   end
 
   def rejected
-    ProjectStatusChangeMailer.rejected(member: RegisteredUser.first || create(:user),
-                                       rejection: ProjectStatusChange.rejected.first ||
-                                         create(:project_status_change, :rejected))
+    ProjectStatusChangeMailer.status_change_notification(
+      member: RegisteredUser.first || create(:user),
+      status_change: ProjectStatusChange.rejected.first || create(:project_status_change, :rejected)
+    )
   end
 end

@@ -11,10 +11,7 @@ class Project < ApplicationRecord
   def approve(approval:)
     return true if approved?
     return false unless apply_status_change(approval, status: "approved")
-
-    members.each do |member|
-      ProjectStatusChangeMailer.approved(member: member, approval: approval).deliver
-    end
+    notify_members_of_status_change(approval)
     true
   end
 
@@ -29,10 +26,7 @@ class Project < ApplicationRecord
   def reject(rejection:)
     return true if rejected?
     return false unless apply_status_change(rejection, status: "rejected")
-
-    members.each do |member|
-      ProjectStatusChangeMailer.rejected(member: member, rejection: rejection).deliver
-    end
+    notify_members_of_status_change(rejection)
     true
   end
 
@@ -40,8 +34,16 @@ class Project < ApplicationRecord
     status == "rejected"
   end
 
-  def apply_status_change(status_change, status:)
+  private def apply_status_change(status_change, status:)
     status_change.project = self
     transaction { status_change.save && update(status: status) }
+  end
+
+  private def notify_members_of_status_change(status_change)
+    members.each do |member|
+      ProjectStatusChangeMailer
+        .status_change_notification(member: member, status_change: status_change)
+        .deliver
+    end
   end
 end

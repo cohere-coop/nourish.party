@@ -111,4 +111,17 @@ class App
     current_page.project?(title: title)
   end
   alias has_public_project? public_project?
+
+  def emails_to(address)
+    ActionMailer::Base.deliveries.select do |email|
+      email.to.include?(address)
+    end.map(&TestEmail.method(:new))
+  end
+
+  def sent_email?(to_user:, subject:, body: //)
+    emails_to(to_user.email).any? do |email|
+      email.matches?(subject: subject, body: body)
+    end
+  end
+  alias has_sent_email? sent_email?
 end

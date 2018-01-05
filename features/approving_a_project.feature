@@ -3,7 +3,6 @@ Feature: Approving a Project
   As a project creator
   I want admins to approve my project!
 
-@wip
 Scenario: Admin approves a project
   Given a project is pending
   And I sign in as an instance admin

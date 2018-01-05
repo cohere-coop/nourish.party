@@ -22,3 +22,7 @@ deploy:
   run:
   - rake db:migrate
   - restart
+
+env:
+  global:
+    - EMAIL_DEFAULT_FROM='no-reply@nourish.example.com'

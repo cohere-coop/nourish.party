@@ -15,7 +15,7 @@ class PendingProjectsPage < SitePrism::Page
     project_status_change_form.submit(reason: reason)
   end
 
-  def reject(project:, reason: "I don't like it")
+  def reject(project:, reason: "I dislike it")
     project_to_reject = pending_projects.element_for(project)
     project_to_reject.begin_rejection_button.click
     project_status_change_form.submit(reason: reason)

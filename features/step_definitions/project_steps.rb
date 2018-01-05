@@ -44,11 +44,11 @@ When("I attempt to reject the project") do
 end
 
 When("the project is approved") do
-  app.project_under_test.approve
+  app.project_under_test.approve(approval: build(:approval))
 end
 
 When("the project is rejected") do
-  app.project_under_test.reject
+  app.project_under_test.reject(rejection: build(:rejection))
 end
 
 Then("I am a member of the project") do
@@ -102,7 +102,8 @@ end
 
 Then(/the project creator is sent a project (approved|rejected) email with my reason/) do |action|
   app.project_under_test.members.each do |member|
-    expect(app).to have_sent_email(to: member,
-                                   subject: I18n.t("project_status_change_mailer.project_#{action}"))
+    expect(app).to have_sent_email(to_user: member,
+                                   subject: I18n.t("project_status_change_mailer.#{action}.subject"),
+                                   body: /#{app.project_under_test.project_status_changes.latest.reason}/)
   end
 end

@@ -1,7 +1,7 @@
-<h1>Reject <%= pending_project.title %>?</h1>
-<p><%= pending_project.summary %></p>
-<%= form_for(project_rejection,
-             url: pending_project_project_rejections_url(pending_project),
+<h1>Reject <%= project.title %>?</h1>
+<p><%= project.summary %></p>
+<%= form_for(rejection,
+             url: project_rejections_url(project),
              html: { data: { type: "project-status-change-form" } }) do |form| %>
   <div class="fields">
     <%= form.label :reason, t('rejecting_project.reason_field') %>

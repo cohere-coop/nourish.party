@@ -1,5 +1,8 @@
 en:
   shared:
+    mail:
+      greeting: "Hello"
+      signature: "The volunteers at Nourish.Party"
     links:
       browse_projects: "Home"
       pending_projects: "Pending Projects"
@@ -38,3 +41,14 @@ en:
     connection_failed: "We were unable to connect the stripe account. Try again?"
     connection_destroyed: "The connection between nourish.party and stripe account named %{stripe_display_name} was removed."
     connection_destroy_failed: "The connection between nourish.party and the stripe account named %{stripe_display_name} was unable to be removed. Try again?"
+  project_status_change_mailer:
+    approved:
+      subject: "Your project has been approved to receive support on Nourish.Party"
+      preamble: "We're happy to announce that your project has been approved to receive support on Nourish.Party. Staff passed along the following reason:"
+      conclusion: "We're looking forward to celebrating your project's success and helping you achieve personal sustainability as a creative!"
+    rejected:
+      subject: "We need more information before your project may receive support on Nourish.Party"
+      preamble: "Unfortunately, we're unable to approve your project to receive support on Nourish.Party. Staff passed along the following reason:"
+      conclusion: "If you believe this has been in error, feel free to reply to this email and we'll be in touch."
+
+

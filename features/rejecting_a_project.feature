@@ -3,7 +3,6 @@ Feature: Rejecting a Project
   As an instance admin
   I want to be able to reject projects
 
-@wip
 Scenario: Admin rejects a project
   Given a project is pending
   And I sign in as an instance admin

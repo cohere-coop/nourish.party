@@ -9,7 +9,7 @@ RSpec.describe Project, type: :model do
 
   describe "#approve" do
     it "updates the project status to approved" do
-      project.approve
+      project.approve(approval: build(:approval))
       expect(project).to be_approved
     end
   end

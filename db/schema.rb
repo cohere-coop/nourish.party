@@ -98,7 +98,6 @@ ActiveRecord::Schema.define(version: 20_180_105_210_226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "instance_admin", default: false
-    t.string "stripe_customer_id"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

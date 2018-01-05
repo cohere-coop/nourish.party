@@ -7,7 +7,7 @@ class ProjectApprovalsController < ModerationController
   def new; end
 
   def create
-    if project.approve(approval: approval)
+    if project.apply_status_change(approval)
       flash[:notice] = t("approving_project.success_notification", project_title: project.title)
       redirect_to pending_projects_path
     else

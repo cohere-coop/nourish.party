@@ -7,7 +7,7 @@ class ProjectRejectionsController < ModerationController
   def new; end
 
   def create
-    if project.reject(rejection: rejection)
+    if project.apply_status_change(rejection)
       flash[:notice] = t("rejecting_project.success_notification", project_title: project.title)
       redirect_to pending_projects_path
     else

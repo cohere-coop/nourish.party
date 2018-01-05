@@ -326,6 +326,7 @@ DEPENDENCIES
   decent_exposure (~> 3.0)
   devise (~> 4.3)
   devise-i18n (~> 1.5)
+  dotenv
   factory_bot_rails (~> 4.8)
   foreman
   jbuilder (~> 2.5)

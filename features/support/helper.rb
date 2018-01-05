@@ -19,6 +19,10 @@ module FeatureTestHelpers
   def current_page
     app.current_page
   end
+
+  def t(lookup, options = {})
+    I18n.t(lookup, options)
+  end
 end
 
 World(FeatureTestHelpers)

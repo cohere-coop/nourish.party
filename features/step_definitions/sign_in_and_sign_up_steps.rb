@@ -3,13 +3,12 @@ Given("I am not signed in") do
 end
 
 Given("I am signed in") do
-  user = create(:user)
-  app.sign_in_as(user: user)
+  app.sign_in_as(user: create(:user))
 end
 
 Given(/^I sign in as (a|an) (user|instance admin|project creator|supporter)$/) do |_, user_type|
-  user_type = user_type.tr(" ", "_").downcase.to_sym
-  app.sign_in_as(user: create(user_type))
+  user = create(user_type.tr(" ", "_").downcase.to_sym)
+  app.sign_in_as(user: user)
 end
 
 Given("there is already a user with the email {string}") do |email|
@@ -59,4 +58,8 @@ end
 
 Then("I am redirected to the sign in page") do
   expect(app).to be_on(:sign_in_page)
+end
+
+Then("I should be asked to confirm my account") do
+  expect(page).to have_content(t("devise.registrations.signed_up_but_unconfirmed"))
 end

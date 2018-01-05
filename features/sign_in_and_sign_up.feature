@@ -3,7 +3,8 @@ Feature: Sign in and Sign up
   Scenario: User can sign up
     When I sign up with the email "unique-email@example.com" and the password "password"
     Then I should not see any errors
-    And I should be signed in as "unique-email@example.com"
+    And I should not be signed in
+    And I should be asked to confirm my account
 
   Scenario: User cannot sign up with an email address that already exists
     Given there is already a user with the email "taken-email@example.com"

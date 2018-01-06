@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/kmrshntr/omniauth-slack.git
+  revision: afd9f5c055d4393b70f3218c99baa21adfb458df
+  specs:
+    omniauth-slack (2.3.0)
+      omniauth-oauth2 (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -335,6 +342,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   omniauth (~> 1.8)
+  omniauth-slack!
   omniauth-stripe-connect (~> 2.10)
   overcommit (~> 0.41)
   pg (~> 0.18)

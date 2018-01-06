@@ -30,6 +30,17 @@ en:
     cancel: "Cancel"
     complete: "Reject"
     success_notification: "You have rejected the project %{project_title}"
+  slack_teams:
+    heading: "Slack Teams"
+    no_connections_warning: "Adding a Slack Team will allow you to invite supporters to your Slack as a reward."
+    connect_button: "Add a Slack Team"
+    disconnect_button: "Disconnect"
+    create:
+      succeeded: "You successfully connected the Slack team %{name}"
+      failed: "We were unable to connect the Slack team. Try again?"
+    destroy:
+      succeeded: "The connection between Nourish and the Slack team named %{name} was removed."
+      failed: "The connection between Nourish.Party and the Slack team named %{name} was unable to be removed. Try again?"
 
   stripe_connections:
     heading: "Process Payments via Stripe"

@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   resources :stripe_connections, only: [:destroy]
   resources :slack_teams, only: [:destroy]
 
-  resources :reward_providers, only: [:index]
-
   get "/auth/stripe_connect/callback", to: "stripe_connections#create"
   get "/auth/slack/callback", to: "slack_teams#create"
 end

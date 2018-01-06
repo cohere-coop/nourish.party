@@ -24,6 +24,12 @@
     "SECRET_KEY_BASE": {
       "generator": "secret"
     },
+    "SLACK_OAUTH_CLIENT_ID": {
+      "description": "Client ID for Slack OAuth. Get from https://api.slack.com/apps. Leave blank if you don't want to support Slack as a reward provider"
+    },
+    "SLACK_OAUTH_CLIENT_SECRET": {
+      "description": "Client Secret for Slack OAuth. Get from https://api.slack.com/apps. Leave blank if you don't want to support Slack as a reward provider"
+    },
     "STRIPE_OAUTH_CLIENT_ID": {
       "description": "Client ID for Stripe OAuth. Get from https://dashboard.stripe.com/account/applications/settings"
     },

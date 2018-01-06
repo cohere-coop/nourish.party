@@ -56,18 +56,20 @@
   <%= link_to(t('stripe_connections.connect_button'), '/auth/stripe_connect', class: 'action --continue', type: 'button') %>
 </div>
 
-<h2><%= t('slack_teams.heading') %></h2>
-<%- if current_user.slack_teams.empty? %>
-  <p class="notification --alert"><%= t('slack_teams.no_connections_warning') %></p>
-<%- end %>
-<%- current_user.slack_teams.each do |slack_team| %>
-  <p><%= slack_team.name %> (<%=slack_team.domain%>)
+<%- if Nourish::Slack.enabled? %>
+  <h2><%= t('slack_teams.heading') %></h2>
+  <%- if current_user.slack_teams.empty? %>
+    <p class="notification --alert"><%= t('slack_teams.no_connections_warning') %></p>
+  <%- end %>
+  <%- current_user.slack_teams.each do |slack_team| %>
+    <p><%= slack_team.name %> (<%=slack_team.domain%>)
     <%= link_to(t('slack_teams.disconnect_button'),
                 slack_team_path(slack_team), method: :delete, type: 'button', class: "--cancel") %></p>
+  <% end %>
+  <div class="actions">
+    <%= link_to(t('slack_teams.connect_button'), '/auth/slack', class: 'action --continue', type: 'button') %>
+  </div>
 <% end %>
-<div class="actions">
-  <%= link_to(t('slack_teams.connect_button'), '/auth/slack', class: 'action --continue', type: 'button') %>
-</div>
 
 <h2>Cancel my account</h2>
 

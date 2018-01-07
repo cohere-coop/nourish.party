@@ -8,6 +8,7 @@ require "site_prism"
 
 require "pages/app"
 
+OmniAuth.config.test_mode = true
 Capybara.server = :puma
 
 # Mixin for feature tests so they can interact with the application instead of using capybara

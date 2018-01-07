@@ -60,12 +60,14 @@
     <p class="notification --alert"><%= t('slack_teams.no_connections_warning') %></p>
   <%- end %>
   <%- current_user.slack_teams.each do |slack_team| %>
-    <p><%= slack_team.name %> (<%=slack_team.domain%>)
+    <p data-type="slack-team" data-id="<%=slack_team.id%>"><%= slack_team.name %> (<%=slack_team.domain%>)
     <%= link_to(t('slack_teams.disconnect_button'),
-                slack_team_path(slack_team), method: :delete, type: 'button', class: "--cancel") %></p>
+                slack_team_path(slack_team), method: :delete, type: 'button', class: "--cancel",
+                data: { action: "destroy-slack-team", id: slack_team.id }) %></p>
   <% end %>
   <div class="actions">
-    <%= link_to(t('slack_teams.connect_button'), '/auth/slack', class: 'action --continue', type: 'button') %>
+    <%= link_to(t("slack_teams.connect_button"), '/auth/slack', class: 'action --continue', type: 'button',
+                data: { action: "new-slack-team" }) %>
   </div>
 <% end %>
 

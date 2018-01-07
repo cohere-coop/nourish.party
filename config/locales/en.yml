@@ -24,6 +24,14 @@ en:
     approved_projects_header: "Approved Projects"
     rejected_projects_header: "Rejected Projects"
 
+  my_contributions:
+    heading: "Your contributions"
+  contribution:
+    summary: "You were charged %{amount} on %{date} in support of %{project}. It will have shown up on your credit card statement as %{statement_descriptor}"
+    processing:
+      succeeded: "You have been charged %{amount} in support of %{project}. It will show up on your credit card statement as %{statement_descriptor}"
+      failed: "We were unable to charge your card for the following reason: %{failure_reason}."
+
   rejecting_project:
     begin: "Reject"
     reason_field: "Why do you think this project is not a good fit for Nourish.Party?"

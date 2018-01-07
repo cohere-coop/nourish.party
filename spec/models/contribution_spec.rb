@@ -1,20 +1,21 @@
 require "rails_helper"
 
 RSpec.describe Contribution, type: :model do
-  describe "#create" do
+  describe "#process" do
     it "charges the payment processor the correct amount" do
-      payment_processor = instance_double("StripePaymentProcessor")
+      Nourish::Stripe.instance = FakeStripe.new
+      project_creator = create(:user)
+      connection = create(:stripe_connection, owner: project_creator)
       contribution = Contribution.new(
-        payment_processor: payment_processor,
-        amount_in_dollars: 10
+        payment_processor_attributes: { token: "not-real", stripe_connection: connection },
+        amount_in_dollars: 10, project: create(:project, members: [project_creator]),
+        contributor: create(:user)
       )
-      allow(payment_processor).to receive(:charge)
 
-      contribution.create
-
-      expect(payment_processor).to have_received(:charge) do |**kwargs|
-        expect(kwargs[:amount]).to eq(10.dollars)
-      end
+      contribution.process
+      charge = contribution.charge
+      expect(charge.amount).to be(10_00)
+      expect(charge.currency).to eql("usd")
     end
   end
 end

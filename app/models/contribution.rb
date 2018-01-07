@@ -1,13 +1,25 @@
 # Contributions made by a supporter to a project
-class Contribution
-  include ActiveModel::Model
-
+class Contribution < ApplicationRecord
   attr_reader :amount_in_dollars
   attr_writer :payment_processor
-  attr_accessor :amount_cents
+  attr_accessor :charge
 
-  def create
-    payment_processor.charge(amount: amount)
+  belongs_to :project
+  delegate :title, to: :project, prefix: true
+  delegate :statement_descriptor, to: :project
+
+  belongs_to :contributor, class_name: :RegisteredUser
+
+  attribute :amount_cents, :integer
+
+  def process
+    transaction do
+      save
+      return false unless persisted?
+      self.charge = payment_processor.charge(amount: amount)
+      self.amount_cents = charge.amount
+      charge.captured?
+    end
   end
 
   def amount_in_dollars=(amount_in_dollars)
@@ -21,7 +33,7 @@ class Contribution
     end
   end
 
-  private def amount
+  def amount
     Money.new(amount_cents, "USD")
   end
 

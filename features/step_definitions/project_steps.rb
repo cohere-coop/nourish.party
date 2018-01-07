@@ -119,3 +119,9 @@ Then(/the project creator is sent a project (approved|rejected) email with my re
                                    body: /#{app.project_under_test.project_status_changes.latest.reason}/)
   end
 end
+
+Then("I see a notice that I was successfully charged in support of the project") do
+  expect(app).to be_showing_notice("contribution.processing.succeeded",
+                                   project: app.project_under_test.title, amount: "$10.00",
+                                   statement_descriptor: app.project_under_test.statement_descriptor)
+end

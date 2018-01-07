@@ -4,6 +4,7 @@ require_relative "project_status_change_form_section"
 require_relative "project_status_change_section"
 require_relative "pending_project_section"
 require_relative "slack_team_section"
+require_relative "sections/contribution_section"
 
 require_relative "home_page"
 require_relative "my_projects_page"

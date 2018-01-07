@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_106_003_038) do
+ActiveRecord::Schema.define(version: 20_180_107_223_426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pgcrypto"
+
+  create_table "contributions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "contributor_id"
+    t.uuid "project_id"
+    t.integer "amount_cents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contributor_id"], name: "index_contributions_on_contributor_id"
+    t.index ["project_id"], name: "index_contributions_on_project_id"
+  end
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.uuid "resource_owner_id", null: false

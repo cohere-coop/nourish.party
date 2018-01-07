@@ -9,8 +9,8 @@ module Nourish
       attr_writer :instance
     end
 
-    def create_charge(**kwargs)
-      ::Stripe::Charge.create(**kwargs)
+    def create_charge(*args, **kwargs)
+      ::Stripe::Charge.create(*args, **kwargs)
     end
   end
 end

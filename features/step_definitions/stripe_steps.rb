@@ -11,9 +11,10 @@ Then("a stripe customer was created for me") do
 end
 
 Then("the stripe API was sent the transaction") do
-  expect(app.stripe_api.created_charges.last).to include(amount: 10_00,
-                                                         currency: "usd",
-                                                         customer: app.current_user.stripe_customer_id,
-                                                         stripe_account:
-                                                           app.project_under_test.stripe_account_id)
+  expect(app.stripe_api.charges.last).to include(amount: 10_00,
+                                                 currency: "usd",
+                                                 source: "tok_visa",
+                                                 destination: {
+                                                   account: app.project_under_test.stripe_account_id
+                                                 })
 end

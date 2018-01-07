@@ -15,7 +15,7 @@ class NewProjectContributionPage < SitePrism::Page
   element :submit_button, "input[type=submit]"
 
   def make_one_off_contribution(credit_card:, amount:)
-    payment_processor_token_field.set("tok_visa")
+    payment_processor_token_field.set(credit_card.token)
     amount_field.set(amount.dollars)
     submit_button.click
   end

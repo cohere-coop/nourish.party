@@ -39,8 +39,8 @@ RSpec.describe StripePaymentProcessor, type: :model do
       stripe_payment_processor.charge(amount: 10.dollars)
 
       expect(Stripe::Charge).to have_received(:create) do |**kwargs|
-        expect(kwargs[:destination]).not_to be_nil
-        expect(kwargs[:destination]).to eq(stripe_connection.stripe_account_id)
+        expect(kwargs[:destination]).not_to be_empty
+        expect(kwargs[:destination]).to eq(account: stripe_connection.stripe_account_id)
       end
     end
   end

@@ -134,4 +134,8 @@ class App
     end
   end
   alias has_sent_email? sent_email?
+
+  def stripe_api
+    Nourish::Stripe.instance
+  end
 end

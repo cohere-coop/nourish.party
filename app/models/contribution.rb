@@ -1,11 +1,17 @@
+# Contributions made by a supporter to a project
 class Contribution
   include ActiveModel::Model
 
-  attr_accessor :amount_in_dollars
+  attr_reader :amount_in_dollars
   attr_writer :payment_processor
 
   def create
     payment_processor.charge(amount: amount)
+  end
+
+  def amount_in_dollars=(amount_in_dollars)
+    (@amount_in_dollars = amount_in_dollars.to_f) && return if amount_in_dollars.respond_to?(:to_f)
+    raise ArgumentError, "amount_in_dollars must respond to #to_f, but is a #{amount_in_dollars.class}"
   end
 
   def payment_processor_attributes=(params)

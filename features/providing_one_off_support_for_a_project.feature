@@ -7,8 +7,7 @@ Feature: Providing One Off Support for a Project
   Scenario: When stripe approves the transaction
     Given I have never provided support before
     When I provide one off support for the project with a valid credit card
-    Then a stripe customer was created for me
-    And the stripe API was sent the transaction
+    Then the stripe API was sent the transaction
     And I am shown that the payment went through
     And I can see the transaction in my transaction history
 

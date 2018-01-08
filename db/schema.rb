@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_105_210_226) do
+ActiveRecord::Schema.define(version: 20_180_106_003_038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pgcrypto"
@@ -109,6 +109,15 @@ ActiveRecord::Schema.define(version: 20_180_105_210_226) do
     t.index ["email"], name: "index_registered_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_registered_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_registered_users_on_unlock_token", unique: true
+  end
+
+  create_table "slack_teams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "owner_id"
+    t.string "slack_id"
+    t.string "access_token"
+    t.string "name"
+    t.string "domain"
+    t.index ["owner_id"], name: "index_slack_teams_on_owner_id"
   end
 
   create_table "stripe_connections", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

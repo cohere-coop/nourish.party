@@ -31,6 +31,7 @@ gem "devise", "~> 4.3"
 gem "devise-i18n", "~> 1.5"
 gem "doorkeeper", "~> 4.2"
 gem "omniauth", "~> 1.8"
+gem "omniauth-slack", github: "kmrshntr/omniauth-slack"
 gem "omniauth-stripe-connect", "~> 2.10"
 
 # Route/Controller/View DRYers

@@ -3,8 +3,11 @@
   <h<%= heading_level %> class="title"><%= project.title %></h<%= heading_level%>>
   <p class="summary"><%= project.summary %></p>
   <div class="actions">
-    <%= link_to(t('contributing_to_project.begin'), new_project_contribution_path(project)) %>
-    <% if (current_user.instance_admin?) && project.pending? %>
+    <% if project.taking_payments? %>
+      <%= link_to(t('contribution.begin'), new_project_contribution_path(project),
+                  { class: 'action --continue', type: 'button', data: { action: 'begin-contribution' } }) %>
+    <% end %>
+    <% if current_user.instance_admin? && project.pending? %>
       <%= link_to(t('approving_project.begin'),
                     new_project_approval_path(project),
                     { class: 'action --continue', type: 'button', data: { action: "begin-approval" } }) %>

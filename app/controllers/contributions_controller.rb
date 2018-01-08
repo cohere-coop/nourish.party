@@ -9,13 +9,13 @@ class ContributionsController < ApplicationController
     if contribution.process
       flash[:notice] = success_notice
     else
-      flash[:alert] = t("contribution.processing.failed")
+      flash[:alert] = t("contribution.failed")
     end
     redirect_to root_path
   end
 
   private def success_notice
-    t("contribution.processing.succeeded", amount: contribution.amount.format(symbol: true), project:
+    t("contribution.succeeded", amount: contribution.amount.format(symbol: true), project:
       project.title, statement_descriptor: project.statement_descriptor)
   end
 

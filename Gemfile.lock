@@ -271,6 +271,8 @@ GEM
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    sentry-raven (2.7.1)
+      faraday (>= 0.7.6, < 1.0)
     simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -354,6 +356,7 @@ DEPENDENCIES
   rubocop-migrations (~> 0.1)
   rubocop-rspec (~> 1.20.1)
   selenium-webdriver (~> 3.8)
+  sentry-raven (~> 2.7)
   site_prism (~> 2.9)
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -45,9 +45,11 @@
       "quantity": 1
     }
   },
-  "addons": [
-    "heroku-postgresql"
-  ],
+  "addons": {
+    "heroku-postgresql": { "plan": "hobby-dev" },
+    "papertrail": { "plan": "chocklad" },
+    "sentry": { "plan": "f1" }
+  },
   "buildpacks": [
     {
       "url": "heroku/nodejs"

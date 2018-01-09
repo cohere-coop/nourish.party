@@ -46,9 +46,7 @@
     }
   },
   "addons": [
-    "heroku-postgresql",
-    "papertrail": { "plan": "chocklad" },
-    "sentry": { "plan": "f1" }
+    "heroku-postgresql"
   ],
   "buildpacks": [
     {

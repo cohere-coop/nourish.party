@@ -60,8 +60,8 @@ group :development, :test do
 
   # Dev tooling niceties
   gem "coveralls", require: false
-  gem "dotenv", require: false
-  gem "foreman", require: false
+  gem "dotenv", "~> 2.2", require: false
+  gem "foreman", "~> 0.84", require: false
 end
 
 group :assets do

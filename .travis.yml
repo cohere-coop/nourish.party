@@ -11,7 +11,7 @@ install:
 - bin/yarn
 - bin/bundle
 before_script:
-- bin/rails db:setup
+- bin/dotenv -f .env.test bin/rails db:setup
 - bin/webpack
 deploy:
   provider: heroku

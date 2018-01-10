@@ -37,6 +37,9 @@ gem "omniauth-stripe-connect", "~> 2.10"
 # Route/Controller/View DRYers
 gem "decent_exposure", "~> 3.0"
 
+# Exception tracking and logging
+gem "sentry-raven", "~> 2.7"
+
 group :development, :test do
   # Debugging
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,8 +60,8 @@ group :development, :test do
 
   # Dev tooling niceties
   gem "coveralls", require: false
-  gem "dotenv", require: false
-  gem "foreman", require: false
+  gem "dotenv", "~> 2.2", require: false
+  gem "foreman", "~> 0.84", require: false
 end
 
 group :assets do

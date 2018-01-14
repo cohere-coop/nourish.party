@@ -36,11 +36,11 @@
 
     <main class="<%= yield(:main_class).present? ? yield(:main_class) : '--primary-layout' %>">
       <%- if flash.key?(:notice) %>
-        <p class="notification --notice"><%= notice %></p>
+        <%= notification(notice) %>
       <% end %>
 
       <%- if flash.key?(:alert) %>
-        <p class="notification --alert"><%= alert %></p>
+        <%= notification(alert, type: 'alert') %>
       <% end %>
       <%= yield %>
     </main>

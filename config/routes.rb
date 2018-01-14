@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :projects, only: %i[new create] do
     resources :approvals, only: %i[new create], controller: "project_rejections"
     resources :rejections, only: %i[new create], controller: "project_approvals"
-    resources :contributions, only: %(new)
+    resources :contributions, only: %i[new create]
   end
   resources :my_projects, only: %i[index]
 

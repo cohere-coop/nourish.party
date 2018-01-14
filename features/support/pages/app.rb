@@ -4,6 +4,7 @@ require_relative "project_status_change_form_section"
 require_relative "project_status_change_section"
 require_relative "pending_project_section"
 require_relative "slack_team_section"
+require_relative "sections/contribution_section"
 
 require_relative "home_page"
 require_relative "my_projects_page"
@@ -59,6 +60,11 @@ class App
   def visit(page, params = {})
     self.current_page = PAGES[page].new
     current_page.load(params)
+  end
+
+  def provide_support(project:, amount: 10.dollars, credit_card: FactoryBot.build(:test_credit_card))
+    visit(:new_project_contribution_page, project_id: project.id)
+    current_page.make_one_off_contribution(credit_card: credit_card, amount: amount)
   end
 
   def approve_project(project:)
@@ -129,4 +135,8 @@ class App
     end
   end
   alias has_sent_email? sent_email?
+
+  def stripe_api
+    Nourish::Stripe.instance
+  end
 end

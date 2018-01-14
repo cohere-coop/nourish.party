@@ -49,6 +49,7 @@ class Project < ApplicationRecord
     false
   end
 
+  delegate :statement_descriptor, to: :stripe_connection
   def stripe_connection
     raise AmbiguousStripeConnection if project_memberships.count > 1
     raise AmbiguousStripeConnection if stripe_connections.count > 1

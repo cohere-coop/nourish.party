@@ -71,6 +71,14 @@
   </div>
 <% end %>
 
+<h2><%= t('my_contributions.heading') %></h2>
+<%- current_user.contributions.each do |contribution| %>
+  <p data-type="contribution" data-id="<%=contribution.id%>">
+  <%= t('contribution.summary', amount: contribution.amount.format(symbol: true),
+        project: contribution.project_title, statement_descriptor: contribution.statement_descriptor,
+        date: contribution.created_at) %> </p>
+<%- end %>
+
 <h2>Cancel my account</h2>
 
 <div class="actions">

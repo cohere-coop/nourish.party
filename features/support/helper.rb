@@ -1,5 +1,4 @@
-require "dotenv"
-Dotenv.load(".env.test")
+require_relative "../../spec/support/dotenv"
 require_relative "../../spec/support/simplecov"
 require "capybara/rails"
 require "capybara/rspec"
@@ -9,7 +8,10 @@ require "site_prism"
 require "pages/app"
 
 OmniAuth.config.test_mode = true
+require_relative "fake_stripe"
+
 Capybara.server = :puma
+Nourish::Stripe.instance = FakeStripe.new
 
 # Mixin for feature tests so they can interact with the application instead of using capybara
 module FeatureTestHelpers

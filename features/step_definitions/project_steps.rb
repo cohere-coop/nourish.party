@@ -1,3 +1,9 @@
+Given("an approved project connected to stripe") do
+  user = create(:user)
+  app.project_under_test = create(:project, members: [user])
+  create(:stripe_connection, owner: user)
+end
+
 Given("a project is pending") do
   app.project_under_test = create(:project, status: :pending, members: [create(:user)])
 end
@@ -9,6 +15,10 @@ end
 Given("I am a member of that project") do
   app.project_under_test.members << build(:registered_user) if app.project_under_test.members.none?
   app.sign_in_as(user: app.project_under_test.members.first)
+end
+
+When("I provide one off support for the project with a valid credit card") do
+  app.provide_support(project: app.project_under_test)
 end
 
 When("I begin to submit a project") do
@@ -25,6 +35,7 @@ When("I reject the project") do
   app.visit(:pending_projects_page)
   current_page.reject(project: app.project_under_test)
 end
+
 When("I approve the project") do
   app.visit(:pending_projects_page)
   current_page.approve(project: app.project_under_test)
@@ -107,4 +118,10 @@ Then(/the project creator is sent a project (approved|rejected) email with my re
                                    subject: I18n.t("project_status_change_mailer.#{action}.subject"),
                                    body: /#{app.project_under_test.project_status_changes.latest.reason}/)
   end
+end
+
+Then("I see a notice that I was successfully charged in support of the project") do
+  expect(app).to be_showing_notice("contribution.succeeded",
+                                   project: app.project_under_test.title, amount: "$10.00",
+                                   statement_descriptor: app.project_under_test.statement_descriptor)
 end

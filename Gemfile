@@ -40,6 +40,10 @@ gem "decent_exposure", "~> 3.0"
 # Exception tracking and logging
 gem "sentry-raven", "~> 2.7"
 
+# money handling
+gem "money"
+gem "stripe"
+
 group :development, :test do
   # Debugging
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,6 +52,7 @@ group :development, :test do
 
   # Test runners and supporting utilities
   gem "factory_bot_rails", "~> 4.8"
+  gem "faker", git: "https://github.com/stympy/faker"
   gem "rspec-rails", "~> 3.6"
 
   # Feature testing

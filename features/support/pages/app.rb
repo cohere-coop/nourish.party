@@ -13,6 +13,7 @@ require_relative "project_status_changes_page"
 require_relative "settings_page"
 require_relative "sign_up_page"
 require_relative "sign_in_page"
+require_relative "new_project_contribution_page"
 
 # Encapsulates interactions with the application for feature testing purposes. At some point this should be an
 # adapter that delegates most of it's behavior to the appropriate pages, instead of manually wrapping it as it
@@ -30,7 +31,8 @@ class App
     pending_projects_page: PendingProjectsPage,
     settings_page: SettingsPage,
     sign_in_page: SignInPage,
-    sign_up_page: SignUpPage
+    sign_up_page: SignUpPage,
+    new_project_contribution_page: NewProjectContributionPage
   }.freeze
 
   def on?(page)
@@ -54,9 +56,9 @@ class App
     end
   end
 
-  def visit(page)
+  def visit(page, params = {})
     self.current_page = PAGES[page].new
-    current_page.load
+    current_page.load(params)
   end
 
   def approve_project(project:)

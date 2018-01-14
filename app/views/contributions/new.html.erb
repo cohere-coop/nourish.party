@@ -1,0 +1,8 @@
+<% if project.stripe_connection.present? %>
+  <%= notification(t('.ready_to_take_payments')) %>
+<% else %>
+  <%= notification(t('.not_connected_to_payment_processor'), type: 'alert') %>
+  <% if project.members.include?(current_user) %>
+    <%= link_to(t('.connect_a_payment_processor'), edit_registered_user_registration_path) %>
+  <% end %>
+<% end %>

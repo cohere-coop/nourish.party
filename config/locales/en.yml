@@ -62,4 +62,8 @@ en:
       preamble: "Unfortunately, we're unable to approve your project to receive support on Nourish.Party. Staff passed along the following reason:"
       conclusion: "If you believe this has been in error, feel free to reply to this email and we'll be in touch."
 
-
+  contributions:
+    new:
+      ready_to_take_payments: "This project is all ready to take payments when we build that feature!"
+      not_connected_to_payment_processor: "This project can't take payments yet."
+      connect_a_payment_processor: "Fix that by connecting a payment processor."

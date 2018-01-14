@@ -39,7 +39,7 @@
 
 <h2><%= t('stripe_connections.heading') %></h2>
 <%- if current_user.stripe_connections.empty? %>
-  <p class="notification --alert"><%= t('stripe_connections.no_connections_warning') %></p>
+  <%= notification(t('stripe_connections.no_connections_warning'), type: 'alert') %>
 <%- end %>
 <%- current_user.stripe_connections.each do |stripe_connection| %>
   <p>
@@ -57,7 +57,7 @@
 <%- if Nourish::Slack.enabled? %>
   <h2><%= t('slack_teams.heading') %></h2>
   <%- if current_user.slack_teams.empty? %>
-    <p class="notification --alert"><%= t('slack_teams.no_connections_warning') %></p>
+    <%= notification(t('slack_teams.no_connections_warning'), type: 'alert') %>
   <%- end %>
   <%- current_user.slack_teams.each do |slack_team| %>
     <p data-type="slack-team" data-id="<%=slack_team.id%>"><%= slack_team.name %> (<%=slack_team.domain%>)

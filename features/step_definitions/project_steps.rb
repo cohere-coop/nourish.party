@@ -6,6 +6,11 @@ Given("I had submitted a project") do
   app.project_under_test = create(:project, status: :pending, members: [app.current_user])
 end
 
+Given("I am a member of that project") do
+  app.project_under_test.members << build(:registered_user) if app.project_under_test.members.none?
+  app.sign_in_as(user: app.project_under_test.members.first)
+end
+
 When("I begin to submit a project") do
   app.visit(:new_project_page)
 end

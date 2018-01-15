@@ -67,3 +67,9 @@ en:
       ready_to_take_payments: "This project is all ready to take payments when we build that feature!"
       not_connected_to_payment_processor: "This project can't take payments yet."
       connect_a_payment_processor: "Fix that by connecting a payment processor."
+
+  projects:
+    update:
+      resubmitted_notification: "You updated the project '%{project}' and it was resubmitted for approval."
+      success_notification: "You updated the project '%{project}'."
+

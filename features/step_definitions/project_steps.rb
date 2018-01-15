@@ -2,8 +2,8 @@ Given("a project is pending") do
   app.project_under_test = create(:project, status: :pending, members: [create(:user)])
 end
 
-Given("I had submitted a project") do
-  app.project_under_test = create(:project, status: :pending, members: [app.current_user])
+Given(/I had submitted a project that is currently (pending|approved|rejected)/) do |status|
+  app.project_under_test = create(:project, status: status.to_sym, members: [app.current_user])
 end
 
 Given("I am a member of that project") do
@@ -13,6 +13,12 @@ end
 
 When("I begin to submit a project") do
   app.visit(:new_project_page)
+end
+
+When("I change the project") do
+  app.visit(:edit_project_page, project_id: app.project_under_test.id)
+  app.current_page.submit(title: "A changed title #{SecureRandom.uuid}",
+                          summary: "A changed summary #{SecureRandom.uuid}")
 end
 
 When("I submit a project") do
@@ -107,4 +113,20 @@ Then(/the project creator is sent a project (approved|rejected) email with my re
                                    subject: I18n.t("project_status_change_mailer.#{action}.subject"),
                                    body: /#{app.project_under_test.project_status_changes.latest.reason}/)
   end
+end
+
+Then("the project reflects my changes") do
+  expect { project_under_test.reload }.to(change do
+    { title: project_under_test.title, summary: project_under_test.summary }
+  end)
+end
+
+Then("I see a notice that the project has been resubmitted for approval") do
+  expect(app).to be_showing_notice("projects.update.resubmitted_notification",
+                                   project: project_under_test.title)
+end
+
+Then("I see a notice that the project has been updated") do
+  expect(app).to be_showing_notice("projects.update.success_notification",
+                                   project: project_under_test.title)
 end

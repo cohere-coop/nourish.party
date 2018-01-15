@@ -23,6 +23,10 @@ class Project < ApplicationRecord
     status == "rejected"
   end
 
+  def resubmitted?
+    previous_changes.fetch("status", []) == %w[rejected pending]
+  end
+
   def apply_status_change(status_change)
     return true if status == status_change.action
     status_change.project = self

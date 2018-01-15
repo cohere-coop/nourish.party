@@ -17,6 +17,10 @@ module FeatureTestHelpers
     @app ||= App.new
   end
 
+  def project_under_test
+    app.project_under_test
+  end
+
   def current_page
     app.current_page
   end

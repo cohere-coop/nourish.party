@@ -8,6 +8,7 @@ require_relative "slack_team_section"
 require_relative "home_page"
 require_relative "my_projects_page"
 require_relative "new_project_page"
+require_relative "edit_project_page"
 require_relative "pending_projects_page"
 require_relative "project_status_changes_page"
 require_relative "settings_page"
@@ -27,6 +28,7 @@ class App
     home_page: HomePage,
     my_projects_page: MyProjectsPage,
     new_project_page: NewProjectPage,
+    edit_project_page: EditProjectPage,
     project_status_changes_page: ProjectStatusChangesPage,
     pending_projects_page: PendingProjectsPage,
     settings_page: SettingsPage,

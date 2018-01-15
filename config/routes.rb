@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "dashboard#index"
 
-  resources :projects, only: %i[new create] do
+  resources :projects, only: %i[new create edit update] do
     resources :approvals, only: %i[new create], controller: "project_rejections"
     resources :rejections, only: %i[new create], controller: "project_approvals"
     resources :contributions, only: %(new)

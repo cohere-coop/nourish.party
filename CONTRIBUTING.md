@@ -1,35 +1,35 @@
-## Contributing to Nourish.Party
-There are four main ways to contribute to Nourish.Party, and we are grateful for each and every contribution you choose to make.
+## Contributing to Nourish
+There are four main ways to contribute to Nourish, and we are grateful for each and every contribution you choose to make.
 
-1. Promoting and improving adoption of Nourish.Party.
-1. Setting up or supporting a Nourish.Party instance.
-1. Extending the Nourish.Party ecosystem by building add-ons and extensions.
-1. Improving the core Nourish.Party application.
+1. Promoting and improving adoption of Nourish.
+1. Setting up or supporting a Nourish instance.
+1. Extending the Nourish ecosystem by building add-ons and extensions.
+1. Improving the core Nourish application.
 
 
 To attempt a shared level of clarity the key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-### Promoting and Improving Adoption of Nourish.Party
-At this time, we are unclear on how to best promote adoption of Nourish.Party. If you happen to have expertise in marketing open-source products, we'd love to hear from you! Drop us a line at [hello@nourish.party](mailto: hello@nourish.party).
+### Promoting and Improving Adoption of Nourish
+At this time, we are unclear on how to best promote adoption of Nourish. If you happen to have expertise in marketing open-source products, we'd love to hear from you! Drop us a line at [hello@nourish.is](mailto: hello@nourish.is).
 
-### Setting up or Supporting a Nourish.Party instance
-We intend to make setting up a Nourish.Party instance as painless as possible, however we are planning to do that by prioritizing a Heroku button type experience. If you have experience making one-click installs of applications on hosting control panels or work with cloud service providers, we'd love your help! Drop a line to [hello@nourish.party](mailto: hello@nourish.party).
+### Setting up or Supporting a Nourish instance
+We intend to make setting up a Nourish instance as painless as possible, however we are planning to do that by prioritizing a Heroku button type experience. If you have experience making one-click installs of applications on hosting control panels or work with cloud service providers, we'd love your help! Drop a line to [hello@nourish.is](mailto: hello@nourish.is).
 
-### Extending the Nourish.Party ecosystem
-Our goal is for Nourish.Party to plug directly into your existing distribution channels, from amazon stores to etsy to Discord to Slack. As you can imagine, that's quite a feat! If you'd like to get involved building an extension, we'd love for you to start building on our OAuth, REST, GraphQL, and Webhook APIs. (Which aren't designed, docuemnted, or built yet... BUT SOON).
+### Extending the Nourish ecosystem
+Our goal is for Nourish to plug directly into your existing distribution channels, from amazon stores to etsy to Discord to Slack. As you can imagine, that's quite a feat! If you'd like to get involved building an extension, we'd love for you to start building on our OAuth, REST, GraphQL, and Webhook APIs. (Which aren't designed, docuemnted, or built yet... BUT SOON).
 
-### Improving the core Nourish.Party application
+### Improving the core Nourish application
 Right now, there are four ways to contribute
 
-#### Providing Feedback to Nourish.Party Maintainers
-Nourish.Party is open-source, community built software. While we intend to place the user first, we sometimes fail to do so. One of the most valuable thing you can do to improve the Nourish.Party is to provide us with specific, actionable and detailed feedback. We're especially interested in hearing about:
+#### Providing Feedback to Nourish Maintainers
+Nourish is open-source, community built software. While we intend to place the user first, we sometimes fail to do so. One of the most valuable thing you can do to improve the Nourish is to provide us with specific, actionable and detailed feedback. We're especially interested in hearing about:
 
-* How Nourish.Party is (or is not!) helping you achieve your goals for financial independence as an independent creative or a small group of creatives.
+* How Nourish is (or is not!) helping you achieve your goals for financial independence as an independent creative or a small group of creatives.
 * Wins or bugs you experienced using Nourish as a supporter.
-* Gaps in our documentation, either as a Nourish.Party site host, add-on developer, or contributor to the core nourish.party platform.
-* Vulnerabilities or risks. Please report these to [security@nourish.party](mailto: security@nourish.party).
+* Gaps in our documentation, either as a Nourish site host, add-on developer, or contributor to the core nourish.is platform.
+* Vulnerabilities or risks. Please report these to [security@nourish.is](mailto: security@nourish.is).
 
-To provide feedback you *should* either create a ticket in our [issue tracker](https://github.com/wecohere/nourish.party/issues) or email [hello@nourish.party](mailto: hello@nourish.party).
+To provide feedback you *should* either create a ticket in our [issue tracker](https://github.com/wecohere/nourish.is/issues) or email [hello@nourish.is](mailto: hello@nourish.is).
 
 #### Contributing Patches
 Patches are very much welcome! From documentation improvements to bug fixes to features, we're grateful for any contributions you send our way. We strongly err on the side of merging patches, so long as the patch meets the following requirements:

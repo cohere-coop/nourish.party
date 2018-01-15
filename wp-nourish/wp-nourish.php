@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name:  Nourish Party for WordPress
+Plugin Name:  Nourish for WordPress
 Plugin URI:   https://github.com/wecohere/nourish.party
-Description:  Connect your Nourish Party to your WordPress site!
+Description:  Connect your Nourish to your WordPress site!
 Version:      0.0.00
 Author:       Dash Buck
 Author URI:   https://dashbuck.com/

@@ -4,7 +4,7 @@ Philosophical TL;DR: Like [this (content warning: swears)](http://bettermotherfu
 
 This project has one big frontend goal and one big frontend constraint:
 
-**GOAL**: If someone wants to give a creator who's using nourish.party money, we do not want to get in their way with slow pageloads, buggy Javascript, poor cross-browser support, etc.
+**GOAL**: If someone wants to give a creator who's using Nourish money, we do not want to get in their way with slow pageloads, buggy Javascript, poor cross-browser support, etc.
 
 **CONSTRAINT**: We do not have a crack frontend infrastructure team, we have a bunch of part-time generalists.
 

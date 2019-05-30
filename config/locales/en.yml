@@ -2,7 +2,7 @@ en:
   shared:
     mail:
       greeting: "Hello"
-      signature: "The volunteers at Nourish.Party"
+      signature: "The volunteers at Nourish"
     links:
       browse_projects: "Home"
       pending_projects: "Pending Projects"
@@ -13,7 +13,7 @@ en:
 
   approving_project:
     begin: "Approve"
-    reason_field: "Why do you think this project is a good fit for Nourish.Party?"
+    reason_field: "Why do you think this project is a good fit for Nourish?"
     cancel: "Cancel"
     complete: "Approve"
     success_notification: "You have approved the project %{project_title}"
@@ -26,7 +26,7 @@ en:
 
   rejecting_project:
     begin: "Reject"
-    reason_field: "Why do you think this project is not a good fit for Nourish.Party?"
+    reason_field: "Why do you think this project is not a good fit for Nourish?"
     cancel: "Cancel"
     complete: "Reject"
     success_notification: "You have rejected the project %{project_title}"
@@ -40,7 +40,7 @@ en:
       failed: "We were unable to connect the Slack team. Try again?"
     destroy:
       succeeded: "The connection between Nourish and the Slack team named %{name} was removed."
-      failed: "The connection between Nourish.Party and the Slack team named %{name} was unable to be removed. Try again?"
+      failed: "The connection between Nourish and the Slack team named %{name} was unable to be removed. Try again?"
 
   stripe_connections:
     heading: "Process Payments via Stripe"
@@ -50,16 +50,16 @@ en:
     account_owner_statement_descriptor_explanation: 'Appears on credit card statements as "%{statement_descriptor}"'
     connection_successful: "You successfully connected %{stripe_display_name}"
     connection_failed: "We were unable to connect the stripe account. Try again?"
-    connection_destroyed: "The connection between nourish.party and stripe account named %{stripe_display_name} was removed."
-    connection_destroy_failed: "The connection between nourish.party and the stripe account named %{stripe_display_name} was unable to be removed. Try again?"
+    connection_destroyed: "The connection between Nourish and stripe account named %{stripe_display_name} was removed."
+    connection_destroy_failed: "The connection between Nourish and the stripe account named %{stripe_display_name} was unable to be removed. Try again?"
   project_status_change_mailer:
     approved:
-      subject: "Your project has been approved to receive support on Nourish.Party"
-      preamble: "We're happy to announce that your project has been approved to receive support on Nourish.Party. Staff passed along the following reason:"
+      subject: "Your project has been approved to receive support on Nourish"
+      preamble: "We're happy to announce that your project has been approved to receive support on Nourish. Staff passed along the following reason:"
       conclusion: "We're looking forward to celebrating your project's success and helping you achieve your funding goals!"
     rejected:
-      subject: "We need more information before your project may receive support on Nourish.Party"
-      preamble: "Unfortunately, we're unable to approve your project to receive support on Nourish.Party. Staff passed along the following reason:"
+      subject: "We need more information before your project may receive support on Nourish"
+      preamble: "Unfortunately, we're unable to approve your project to receive support on Nourish. Staff passed along the following reason:"
       conclusion: "If you believe this has been in error, feel free to reply to this email and we'll be in touch."
 
   contributions:

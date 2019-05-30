@@ -38,7 +38,7 @@ brew services start postgresql
 1. Run the setup script:
 
  ```
- cd /path/to/nourish.party
+ cd /path/to/nourish
  bin/setup
  ```
 
@@ -48,7 +48,7 @@ brew services start postgresql
 
 ### Run the Application
 ```
-cd /path/to/nourish.party
+cd /path/to/nourish
 bin/serve
 ```
 This starts several processes:
